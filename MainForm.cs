@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StudentsTransfer.Entity;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,11 @@ namespace StudentsTransfer
         public MainForm()
         {
             InitializeComponent();
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            Admin adminAcc = new Admin("admin", "admin123");
         }
     }
 }
