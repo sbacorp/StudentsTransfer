@@ -32,12 +32,13 @@ namespace StudentsTransfer
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.loginTextBox = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.createAccButton = new System.Windows.Forms.Button();
+            this.authButton = new System.Windows.Forms.Button();
+            this.passwordLabel = new System.Windows.Forms.Label();
             this.loginLabel = new System.Windows.Forms.Label();
             this.passwordTextBox = new System.Windows.Forms.TextBox();
-            this.passwordLabel = new System.Windows.Forms.Label();
-            this.authButton = new System.Windows.Forms.Button();
-            this.createAccButton = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.incorrectDataLabel = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -53,6 +54,7 @@ namespace StudentsTransfer
             // 
             this.panel1.Controls.Add(this.createAccButton);
             this.panel1.Controls.Add(this.authButton);
+            this.panel1.Controls.Add(this.incorrectDataLabel);
             this.panel1.Controls.Add(this.passwordLabel);
             this.panel1.Controls.Add(this.loginLabel);
             this.panel1.Controls.Add(this.passwordTextBox);
@@ -62,6 +64,36 @@ namespace StudentsTransfer
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(422, 319);
             this.panel1.TabIndex = 1;
+            // 
+            // createAccButton
+            // 
+            this.createAccButton.FlatAppearance.BorderSize = 0;
+            this.createAccButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.createAccButton.Location = new System.Drawing.Point(128, 244);
+            this.createAccButton.Name = "createAccButton";
+            this.createAccButton.Size = new System.Drawing.Size(155, 26);
+            this.createAccButton.TabIndex = 2;
+            this.createAccButton.Text = "Нет аккаунта?";
+            this.createAccButton.UseVisualStyleBackColor = true;
+            // 
+            // authButton
+            // 
+            this.authButton.Location = new System.Drawing.Point(128, 198);
+            this.authButton.Name = "authButton";
+            this.authButton.Size = new System.Drawing.Size(155, 40);
+            this.authButton.TabIndex = 2;
+            this.authButton.Text = "Авторизация";
+            this.authButton.UseVisualStyleBackColor = true;
+            this.authButton.Click += new System.EventHandler(this.authButton_Click);
+            // 
+            // passwordLabel
+            // 
+            this.passwordLabel.AutoSize = true;
+            this.passwordLabel.Location = new System.Drawing.Point(62, 104);
+            this.passwordLabel.Name = "passwordLabel";
+            this.passwordLabel.Size = new System.Drawing.Size(64, 18);
+            this.passwordLabel.TabIndex = 1;
+            this.passwordLabel.Text = "Пароль";
             // 
             // loginLabel
             // 
@@ -79,35 +111,7 @@ namespace StudentsTransfer
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.Size = new System.Drawing.Size(300, 31);
             this.passwordTextBox.TabIndex = 0;
-            // 
-            // passwordLabel
-            // 
-            this.passwordLabel.AutoSize = true;
-            this.passwordLabel.Location = new System.Drawing.Point(62, 104);
-            this.passwordLabel.Name = "passwordLabel";
-            this.passwordLabel.Size = new System.Drawing.Size(64, 18);
-            this.passwordLabel.TabIndex = 1;
-            this.passwordLabel.Text = "Пароль";
-            // 
-            // authButton
-            // 
-            this.authButton.Location = new System.Drawing.Point(128, 175);
-            this.authButton.Name = "authButton";
-            this.authButton.Size = new System.Drawing.Size(155, 40);
-            this.authButton.TabIndex = 2;
-            this.authButton.Text = "Авторизация";
-            this.authButton.UseVisualStyleBackColor = true;
-            // 
-            // createAccButton
-            // 
-            this.createAccButton.FlatAppearance.BorderSize = 0;
-            this.createAccButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.createAccButton.Location = new System.Drawing.Point(128, 221);
-            this.createAccButton.Name = "createAccButton";
-            this.createAccButton.Size = new System.Drawing.Size(155, 26);
-            this.createAccButton.TabIndex = 2;
-            this.createAccButton.Text = "Нет аккаунта?";
-            this.createAccButton.UseVisualStyleBackColor = true;
+            this.passwordTextBox.UseSystemPasswordChar = true;
             // 
             // pictureBox1
             // 
@@ -121,6 +125,17 @@ namespace StudentsTransfer
             this.pictureBox1.Size = new System.Drawing.Size(422, 194);
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
+            // 
+            // incorrectDataLabel
+            // 
+            this.incorrectDataLabel.AutoSize = true;
+            this.incorrectDataLabel.ForeColor = System.Drawing.Color.Red;
+            this.incorrectDataLabel.Location = new System.Drawing.Point(114, 168);
+            this.incorrectDataLabel.Name = "incorrectDataLabel";
+            this.incorrectDataLabel.Size = new System.Drawing.Size(224, 18);
+            this.incorrectDataLabel.TabIndex = 1;
+            this.incorrectDataLabel.Text = "Неверный логин или пароль";
+            this.incorrectDataLabel.Visible = false;
             // 
             // MainForm
             // 
@@ -136,7 +151,6 @@ namespace StudentsTransfer
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "MainForm";
             this.Text = "SignUp";
-            this.Load += new System.EventHandler(this.MainForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -154,6 +168,7 @@ namespace StudentsTransfer
         private System.Windows.Forms.Label loginLabel;
         private System.Windows.Forms.TextBox passwordTextBox;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label incorrectDataLabel;
     }
 }
 

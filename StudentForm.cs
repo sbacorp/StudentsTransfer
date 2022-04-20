@@ -16,5 +16,10 @@ namespace StudentsTransfer
         {
             InitializeComponent();
         }
+
+        private void StudentForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
