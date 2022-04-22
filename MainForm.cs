@@ -17,12 +17,11 @@ namespace StudentsTransfer
         User admin;
         AdminForm adminForm;
         StudentForm studentForm;
+        RegistrationForm registrationForm;
 
         public MainForm()
         {
             InitializeComponent();
-            adminForm = new AdminForm();
-            studentForm = new StudentForm();
             admin = new Admin("admin", "admin123");
         }
 
@@ -35,14 +34,15 @@ namespace StudentsTransfer
                 return;
             }
             else if (loginTextBox.Text.Equals(admin.login) && passwordTextBox.Text.Equals(admin.password))
-            { 
+            {
+                adminForm = new AdminForm();
                 this.Hide();
                 adminForm.Show();
                 return;
             }
             else
             {
-                using (var connection = new SQLiteConnection(@"Data Source=C:\Users\Danil\source\repos\StudentsTransfer\StudTransfer.db;Mode=ReadOnly")) // TODO прописать путь к базе
+                using (var connection = new SQLiteConnection(@"Data Source=..\..\StudTransfer.db;Mode=ReadOnly")) // TODO прописать путь к базе
                 {
                     connection.Open();
                     SQLiteCommand command = new SQLiteCommand();
@@ -52,6 +52,7 @@ namespace StudentsTransfer
                     {
                         if (reader.HasRows)
                         {
+                            studentForm = new StudentForm();
                             this.Hide();
                             studentForm.Show();
                             return;
@@ -61,6 +62,16 @@ namespace StudentsTransfer
             }
             incorrectDataLabel.Text = "Неверные логин или пароль";
             incorrectDataLabel.Visible = true;
+        }
+
+        private void createAccButton_Click(object sender, EventArgs e)
+        {
+            registrationForm = new RegistrationForm();
+            this.Hide();
+            if (registrationForm.ShowDialog().Equals(DialogResult.OK))
+            {
+                this.Show();
+            }
         }
     }
 }

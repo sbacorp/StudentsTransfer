@@ -34,11 +34,11 @@ namespace StudentsTransfer
             this.panel1 = new System.Windows.Forms.Panel();
             this.createAccButton = new System.Windows.Forms.Button();
             this.authButton = new System.Windows.Forms.Button();
+            this.incorrectDataLabel = new System.Windows.Forms.Label();
             this.passwordLabel = new System.Windows.Forms.Label();
             this.loginLabel = new System.Windows.Forms.Label();
             this.passwordTextBox = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.incorrectDataLabel = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -75,6 +75,7 @@ namespace StudentsTransfer
             this.createAccButton.TabIndex = 2;
             this.createAccButton.Text = "Нет аккаунта?";
             this.createAccButton.UseVisualStyleBackColor = true;
+            this.createAccButton.Click += new System.EventHandler(this.createAccButton_Click);
             // 
             // authButton
             // 
@@ -85,6 +86,17 @@ namespace StudentsTransfer
             this.authButton.Text = "Авторизация";
             this.authButton.UseVisualStyleBackColor = true;
             this.authButton.Click += new System.EventHandler(this.authButton_Click);
+            // 
+            // incorrectDataLabel
+            // 
+            this.incorrectDataLabel.AutoSize = true;
+            this.incorrectDataLabel.ForeColor = System.Drawing.Color.Red;
+            this.incorrectDataLabel.Location = new System.Drawing.Point(114, 168);
+            this.incorrectDataLabel.Name = "incorrectDataLabel";
+            this.incorrectDataLabel.Size = new System.Drawing.Size(224, 18);
+            this.incorrectDataLabel.TabIndex = 1;
+            this.incorrectDataLabel.Text = "Неверный логин или пароль";
+            this.incorrectDataLabel.Visible = false;
             // 
             // passwordLabel
             // 
@@ -125,17 +137,6 @@ namespace StudentsTransfer
             this.pictureBox1.Size = new System.Drawing.Size(422, 194);
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
-            // 
-            // incorrectDataLabel
-            // 
-            this.incorrectDataLabel.AutoSize = true;
-            this.incorrectDataLabel.ForeColor = System.Drawing.Color.Red;
-            this.incorrectDataLabel.Location = new System.Drawing.Point(114, 168);
-            this.incorrectDataLabel.Name = "incorrectDataLabel";
-            this.incorrectDataLabel.Size = new System.Drawing.Size(224, 18);
-            this.incorrectDataLabel.TabIndex = 1;
-            this.incorrectDataLabel.Text = "Неверный логин или пароль";
-            this.incorrectDataLabel.Visible = false;
             // 
             // MainForm
             // 
