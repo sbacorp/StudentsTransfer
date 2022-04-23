@@ -58,7 +58,9 @@
             this.button2 = new System.Windows.Forms.Button();
             this.authButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // surnameTextBox
@@ -174,9 +176,10 @@
             // nameCheck
             // 
             this.nameCheck.AutoSize = true;
+            this.nameCheck.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.nameCheck.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.nameCheck.ForeColor = System.Drawing.Color.Red;
-            this.nameCheck.Location = new System.Drawing.Point(510, 58);
+            this.nameCheck.Location = new System.Drawing.Point(366, 148);
             this.nameCheck.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.nameCheck.Name = "nameCheck";
             this.nameCheck.Size = new System.Drawing.Size(28, 17);
@@ -188,7 +191,7 @@
             this.surnameCheck.AutoSize = true;
             this.surnameCheck.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.surnameCheck.ForeColor = System.Drawing.Color.Red;
-            this.surnameCheck.Location = new System.Drawing.Point(510, 129);
+            this.surnameCheck.Location = new System.Drawing.Point(366, 219);
             this.surnameCheck.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.surnameCheck.Name = "surnameCheck";
             this.surnameCheck.Size = new System.Drawing.Size(28, 17);
@@ -200,7 +203,7 @@
             this.mailCheck.AutoSize = true;
             this.mailCheck.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.mailCheck.ForeColor = System.Drawing.Color.Red;
-            this.mailCheck.Location = new System.Drawing.Point(510, 256);
+            this.mailCheck.Location = new System.Drawing.Point(366, 346);
             this.mailCheck.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.mailCheck.Name = "mailCheck";
             this.mailCheck.Size = new System.Drawing.Size(28, 17);
@@ -212,7 +215,7 @@
             this.passwordCheck.AutoSize = true;
             this.passwordCheck.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.passwordCheck.ForeColor = System.Drawing.Color.Red;
-            this.passwordCheck.Location = new System.Drawing.Point(510, 324);
+            this.passwordCheck.Location = new System.Drawing.Point(366, 410);
             this.passwordCheck.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.passwordCheck.Name = "passwordCheck";
             this.passwordCheck.Size = new System.Drawing.Size(0, 17);
@@ -253,7 +256,7 @@
             this.confirmPassCheck.AutoSize = true;
             this.confirmPassCheck.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.confirmPassCheck.ForeColor = System.Drawing.Color.Red;
-            this.confirmPassCheck.Location = new System.Drawing.Point(510, 411);
+            this.confirmPassCheck.Location = new System.Drawing.Point(366, 524);
             this.confirmPassCheck.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.confirmPassCheck.Name = "confirmPassCheck";
             this.confirmPassCheck.Size = new System.Drawing.Size(0, 17);
@@ -294,7 +297,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Gotham", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(32, 4);
+            this.label2.Location = new System.Drawing.Point(31, 5);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(107, 13);
             this.label2.TabIndex = 10;
@@ -304,7 +307,7 @@
             // 
             this.pictureBox1.BackgroundImage = global::StudentsTransfer.Properties.Resources.transfer;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(5, 3);
+            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(22, 15);
             this.pictureBox1.TabIndex = 9;
@@ -316,7 +319,7 @@
             this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button2.FlatAppearance.BorderSize = 0;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Location = new System.Drawing.Point(395, 2);
+            this.button2.Location = new System.Drawing.Point(392, 3);
             this.button2.Margin = new System.Windows.Forms.Padding(5);
             this.button2.Name = "button2";
             this.button2.Padding = new System.Windows.Forms.Padding(5);
@@ -352,17 +355,26 @@
             this.label1.TabIndex = 12;
             this.label1.Text = "Регистрация";
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.button2);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(411, 25);
+            this.panel1.TabIndex = 13;
+            // 
             // RegistrationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(411, 639);
+            this.ClientSize = new System.Drawing.Size(411, 637);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.authButton);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.dateTimePicker);
             this.Controls.Add(this.showConfirmPassCheckBox);
             this.Controls.Add(this.showPassCheckBox);
@@ -391,6 +403,8 @@
             this.Text = "Registration";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.RegistrationForm_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -427,5 +441,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button authButton;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel1;
     }
 }

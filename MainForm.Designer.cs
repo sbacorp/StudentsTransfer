@@ -42,8 +42,11 @@ namespace StudentsTransfer
             this.loginTextBox = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -62,7 +65,7 @@ namespace StudentsTransfer
             this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button2.FlatAppearance.BorderSize = 0;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Location = new System.Drawing.Point(400, 2);
+            this.button2.Location = new System.Drawing.Point(397, 4);
             this.button2.Margin = new System.Windows.Forms.Padding(5);
             this.button2.Name = "button2";
             this.button2.Padding = new System.Windows.Forms.Padding(5);
@@ -73,6 +76,7 @@ namespace StudentsTransfer
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.checkBox1);
             this.panel1.Controls.Add(this.linkLabel1);
             this.panel1.Controls.Add(this.authButton);
             this.panel1.Controls.Add(this.incorrectDataLabel);
@@ -178,7 +182,7 @@ namespace StudentsTransfer
             // 
             this.pictureBox1.BackgroundImage = global::StudentsTransfer.Properties.Resources.transfer;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(5, 3);
+            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(22, 15);
             this.pictureBox1.TabIndex = 6;
@@ -188,11 +192,33 @@ namespace StudentsTransfer
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Gotham", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(33, 3);
+            this.label2.Location = new System.Drawing.Point(31, 5);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(107, 13);
             this.label2.TabIndex = 7;
             this.label2.Text = "Student Transfer";
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Font = new System.Drawing.Font("Gotham", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox1.Location = new System.Drawing.Point(58, 194);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(123, 21);
+            this.checkBox1.TabIndex = 4;
+            this.checkBox1.Text = "Запомнить пароль";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.pictureBox1);
+            this.panel2.Controls.Add(this.button2);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(416, 21);
+            this.panel2.TabIndex = 8;
             // 
             // MainForm
             // 
@@ -200,9 +226,7 @@ namespace StudentsTransfer
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(416, 415);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Gotham", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -215,6 +239,8 @@ namespace StudentsTransfer
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -234,6 +260,8 @@ namespace StudentsTransfer
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Panel panel2;
     }
 }
 
