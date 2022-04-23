@@ -130,7 +130,23 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\gothampro.ttf" />
+    <None Include="Resources\gothampro_black.ttf" />
+    <None Include="Resources\gothampro_blackitalic.ttf" />
+    <None Include="Resources\gothampro_bold.ttf" />
+    <None Include="Resources\gothampro_bolditalic.ttf" />
+    <None Include="Resources\gothampro_italic.ttf" />
+    <None Include="Resources\gothampro_light.ttf" />
+    <None Include="Resources\gothampro_lightitalic.ttf" />
+    <None Include="Resources\gothampro_medium.ttf" />
+    <None Include="Resources\gothampro_mediumitalic.ttf" />
     <None Include="Resources\transfer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ryjgrf.jpg" />
+    <None Include="Resources\Безымянный-2.jpg" />
+    <None Include="Resources\close %281%29.png" />
+    <Content Include="transfer.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

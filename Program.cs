@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.Drawing.Text;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -18,5 +20,6 @@ namespace StudentsTransfer
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainForm());
         }
+
     }
 }

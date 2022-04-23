@@ -173,5 +173,42 @@ namespace StudentsTransfer
                 MessageBox.Show("Проверьте правильность заполнения полей");
             }
         }
+
+        private void nameLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void authButton_Click(object sender, EventArgs e)
+        {
+            if (nameMatch && surnameMatch && mailMatch && passwordMatch && confirmPassMatch)
+            {
+                using (var connection = new SQLiteConnection(@"Data Source=..\..\StudTransfer.db"))
+                {
+                    connection.Open();
+                    SQLiteCommand command = new SQLiteCommand();
+                    command.Connection = connection;
+                    command.CommandText = $"INSERT INTO users (name, lastname, mail, dateOfBirth, password) VALUES('{nameTextBox.Text}', '{surnameTextBox.Text}', '{mailTextBox.Text}', '{dateTimePicker.Value.ToString("d")}', '{passwordTextBox.Text}');";
+                    if (command.ExecuteNonQuery() > 0)
+                    {
+                        MessageBox.Show("Аккаунт создан");
+                        DialogResult = DialogResult.OK;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Что-то пошло не так");
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Проверьте правильность заполнения полей");
+            }
+        }
     }
 }

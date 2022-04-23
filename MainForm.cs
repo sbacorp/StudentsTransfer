@@ -73,5 +73,30 @@ namespace StudentsTransfer
                 this.Show();
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            registrationForm = new RegistrationForm();
+            this.Hide();
+            if (registrationForm.ShowDialog().Equals(DialogResult.OK))
+            {
+                this.Show();
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
