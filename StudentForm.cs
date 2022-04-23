@@ -15,11 +15,14 @@ namespace StudentsTransfer
         public StudentForm()
         {
             InitializeComponent();
+            DoubleBuffered = true;
+            SetStyle(ControlStyles.ResizeRedraw, true);
         }
-
         private void StudentForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
         }
+        
+        
     }
 }
