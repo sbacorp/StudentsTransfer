@@ -71,6 +71,9 @@
     <Compile Include="AdminForm.Designer.cs">
       <DependentUpon>AdminForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="CustomCheckBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Entity\Admin.cs" />
     <Compile Include="Entity\User.cs" />
     <Compile Include="MainForm.cs">
@@ -93,6 +96,12 @@
     <Compile Include="StudentForm.Designer.cs">
       <DependentUpon>StudentForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="StudentInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StudentInfo.Designer.cs">
+      <DependentUpon>StudentInfo.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AdminForm.resx">
       <DependentUpon>AdminForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -114,6 +123,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="StudentForm.resx">
       <DependentUpon>StudentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StudentInfo.resx">
+      <DependentUpon>StudentInfo.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -147,6 +159,7 @@
     <None Include="Resources\Безымянный-2.jpg" />
     <None Include="Resources\close %281%29.png" />
     <None Include="Resources\Безымянный-1.jpg" />
+    <Content Include="Resources\setting.png" />
     <Content Include="transfer.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

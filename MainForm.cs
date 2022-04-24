@@ -118,5 +118,13 @@ namespace StudentsTransfer
 
 
         #endregion
+
+        private void MainForm_Resize(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Maximized)
+            {
+                this.WindowState = FormWindowState.Normal;
+            }
+        }
     }
 }
