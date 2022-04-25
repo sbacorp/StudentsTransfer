@@ -12,9 +12,9 @@ namespace StudentsTransfer
 {
     public partial class StudentForm : Form
     {
-        private const int INTERVAL_UP = 5;
-        private int factor;
+        Form formInPanel;
         StudentInfo studInfo;
+        Statements statements;
         public StudentForm()
         {
             InitializeComponent();
@@ -26,33 +26,54 @@ namespace StudentsTransfer
             Application.Exit();
         }
 
-        private void MenuPanel_MouseEnter(object sender, EventArgs e)
-        {
-            this.timerSetting.Interval = 10;
-            this.timerSetting.Enabled = true;
-            factor = 1;
-            
-        }
 
-        private void timerSetting_Tick(object sender, EventArgs e)
-        {
-            if (this.timerSetting.Interval>500)
-            {
-                timerSetting.Enabled = false;
-                return;
-            }
-            timerSetting.Interval += INTERVAL_UP * factor;
-            factor += 1;
-            pictureBoxSetting.Image.RotateFlip(RotateFlipType.Rotate90FlipY);
-            pictureBoxSetting.Image = pictureBoxSetting.Image;
-            
-        }
+        
 
         private void StudentForm_Load(object sender, EventArgs e)
         {
-            studInfo = new StudentInfo(this);
-            this.panelContent.Controls.Add(studInfo);
+            
+        }
+
+        private void buttonMain_Click(object sender, EventArgs e)
+        {
+            if (studInfo ==null)
+            {
+                studInfo = new StudentInfo(this);
+            }
+            if (this.panelContent.Controls.Contains(formInPanel))
+            {
+                panelContent.Controls.Remove(formInPanel);
+            }
+            formInPanel = studInfo;
+            this.panelContent.Controls.Add(formInPanel);
             studInfo.Show();
+        }
+
+        private void buttonApplications_Click(object sender, EventArgs e)
+        {
+            if (statements == null)
+            {
+                statements = new Statements();
+            }
+            if (this.panelContent.Controls.Contains(formInPanel))
+            {
+                panelContent.Controls.Remove(formInPanel);
+            }
+            formInPanel = statements;
+            this.panelContent.Controls.Add(formInPanel);
+            statements.Show();
+        }
+
+        private void MenuPanel_MouseEnter(object sender, EventArgs e)
+        {
+
+            pictureBoxSetting.Image.RotateFlip(RotateFlipType.Rotate90FlipY);
+            pictureBoxSetting.Image = pictureBoxSetting.Image;
+        }
+        private void buttonSetting_MouseLeave(object sender, EventArgs e)
+        {
+            pictureBoxSetting.Image.RotateFlip(RotateFlipType.Rotate90FlipY);
+            pictureBoxSetting.Image = pictureBoxSetting.Image;
         }
     }
 }

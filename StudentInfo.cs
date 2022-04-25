@@ -55,5 +55,6 @@ namespace StudentsTransfer
             }
             activeBox = putBox.Checked ? putBox : null;
         }
+
     }
 }
