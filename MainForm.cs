@@ -51,9 +51,10 @@ namespace StudentsTransfer
                     command.CommandText = $"SELECT * FROM users WHERE mail = '{loginTextBox.Text}' AND password = '{passwordTextBox.Text}'";
                     using (SQLiteDataReader reader = command.ExecuteReader())
                     {
-                        if (reader.HasRows)
+                        int id = 0;
+                        if (reader.HasRows && reader.Read() && int.TryParse(reader.GetValue(0).ToString(), out id))
                         {
-                            studentForm = new StudentForm();
+                            studentForm = new StudentForm(id);
                             this.Hide();
                             studentForm.Show();
                             return;
@@ -75,10 +76,6 @@ namespace StudentsTransfer
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
@@ -126,5 +123,6 @@ namespace StudentsTransfer
                 this.WindowState = FormWindowState.Normal;
             }
         }
+
     }
 }

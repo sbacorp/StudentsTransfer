@@ -65,21 +65,21 @@
             // 
             // surnameTextBox
             // 
-            this.surnameTextBox.Font = new System.Drawing.Font("Gotham", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.surnameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.surnameTextBox.Location = new System.Drawing.Point(53, 211);
             this.surnameTextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.surnameTextBox.Name = "surnameTextBox";
-            this.surnameTextBox.Size = new System.Drawing.Size(305, 33);
+            this.surnameTextBox.Size = new System.Drawing.Size(305, 35);
             this.surnameTextBox.TabIndex = 0;
             this.surnameTextBox.TextChanged += new System.EventHandler(this.surnameTextBox_TextChanged);
             // 
             // nameTextBox
             // 
-            this.nameTextBox.Font = new System.Drawing.Font("Gotham", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nameTextBox.Location = new System.Drawing.Point(53, 137);
             this.nameTextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.nameTextBox.Name = "nameTextBox";
-            this.nameTextBox.Size = new System.Drawing.Size(305, 33);
+            this.nameTextBox.Size = new System.Drawing.Size(305, 35);
             this.nameTextBox.TabIndex = 0;
             this.nameTextBox.TextChanged += new System.EventHandler(this.nameTextBox_TextChanged);
             // 
@@ -87,12 +87,12 @@
             // 
             this.nameLabel.AutoSize = true;
             this.nameLabel.BackColor = System.Drawing.Color.Transparent;
-            this.nameLabel.Font = new System.Drawing.Font("Gotham", 12F, System.Drawing.FontStyle.Bold);
+            this.nameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.nameLabel.ForeColor = System.Drawing.Color.Black;
             this.nameLabel.Location = new System.Drawing.Point(50, 116);
             this.nameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.nameLabel.Name = "nameLabel";
-            this.nameLabel.Size = new System.Drawing.Size(43, 18);
+            this.nameLabel.Size = new System.Drawing.Size(48, 20);
             this.nameLabel.TabIndex = 1;
             this.nameLabel.Text = "Имя ";
             this.nameLabel.Click += new System.EventHandler(this.nameLabel_Click);
@@ -104,28 +104,28 @@
             this.surnameLabel.Location = new System.Drawing.Point(52, 190);
             this.surnameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.surnameLabel.Name = "surnameLabel";
-            this.surnameLabel.Size = new System.Drawing.Size(77, 18);
+            this.surnameLabel.Size = new System.Drawing.Size(88, 20);
             this.surnameLabel.TabIndex = 1;
             this.surnameLabel.Text = "Фамилия";
             // 
             // passwordTextBox
             // 
-            this.passwordTextBox.Font = new System.Drawing.Font("Gotham", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.passwordTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.passwordTextBox.Location = new System.Drawing.Point(53, 410);
             this.passwordTextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.passwordTextBox.Name = "passwordTextBox";
-            this.passwordTextBox.Size = new System.Drawing.Size(305, 33);
+            this.passwordTextBox.Size = new System.Drawing.Size(305, 35);
             this.passwordTextBox.TabIndex = 0;
             this.passwordTextBox.UseSystemPasswordChar = true;
             this.passwordTextBox.TextChanged += new System.EventHandler(this.passwordTextBox_TextChanged);
             // 
             // mailTextBox
             // 
-            this.mailTextBox.Font = new System.Drawing.Font("Gotham", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mailTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mailTextBox.Location = new System.Drawing.Point(53, 337);
             this.mailTextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.mailTextBox.Name = "mailTextBox";
-            this.mailTextBox.Size = new System.Drawing.Size(305, 33);
+            this.mailTextBox.Size = new System.Drawing.Size(305, 35);
             this.mailTextBox.TabIndex = 0;
             this.mailTextBox.TextChanged += new System.EventHandler(this.mailTextBox_TextChanged);
             // 
@@ -136,7 +136,7 @@
             this.mailLabel.Location = new System.Drawing.Point(52, 316);
             this.mailLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.mailLabel.Name = "mailLabel";
-            this.mailLabel.Size = new System.Drawing.Size(54, 18);
+            this.mailLabel.Size = new System.Drawing.Size(62, 20);
             this.mailLabel.TabIndex = 1;
             this.mailLabel.Text = "Почта";
             // 
@@ -147,17 +147,17 @@
             this.passwordLabel.Location = new System.Drawing.Point(50, 389);
             this.passwordLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.passwordLabel.Name = "passwordLabel";
-            this.passwordLabel.Size = new System.Drawing.Size(63, 18);
+            this.passwordLabel.Size = new System.Drawing.Size(73, 20);
             this.passwordLabel.TabIndex = 1;
             this.passwordLabel.Text = "Пароль";
             // 
             // confirmPassTextBox
             // 
-            this.confirmPassTextBox.Font = new System.Drawing.Font("Gotham", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.confirmPassTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.confirmPassTextBox.Location = new System.Drawing.Point(53, 513);
             this.confirmPassTextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.confirmPassTextBox.Name = "confirmPassTextBox";
-            this.confirmPassTextBox.Size = new System.Drawing.Size(305, 33);
+            this.confirmPassTextBox.Size = new System.Drawing.Size(305, 35);
             this.confirmPassTextBox.TabIndex = 0;
             this.confirmPassTextBox.UseSystemPasswordChar = true;
             this.confirmPassTextBox.TextChanged += new System.EventHandler(this.confirmPassTextBox_TextChanged);
@@ -169,7 +169,7 @@
             this.confirmPassLabel.Location = new System.Drawing.Point(50, 492);
             this.confirmPassLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.confirmPassLabel.Name = "confirmPassLabel";
-            this.confirmPassLabel.Size = new System.Drawing.Size(164, 18);
+            this.confirmPassLabel.Size = new System.Drawing.Size(192, 20);
             this.confirmPassLabel.TabIndex = 1;
             this.confirmPassLabel.Text = "Подтвердите пароль";
             // 
@@ -232,7 +232,7 @@
             this.showPassCheckBox.Location = new System.Drawing.Point(53, 449);
             this.showPassCheckBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.showPassCheckBox.Name = "showPassCheckBox";
-            this.showPassCheckBox.Size = new System.Drawing.Size(155, 22);
+            this.showPassCheckBox.Size = new System.Drawing.Size(175, 24);
             this.showPassCheckBox.TabIndex = 3;
             this.showPassCheckBox.Text = "Показать пароль";
             this.showPassCheckBox.UseVisualStyleBackColor = true;
@@ -245,7 +245,7 @@
             this.showConfirmPassCheckBox.Location = new System.Drawing.Point(53, 552);
             this.showConfirmPassCheckBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.showConfirmPassCheckBox.Name = "showConfirmPassCheckBox";
-            this.showConfirmPassCheckBox.Size = new System.Drawing.Size(155, 22);
+            this.showConfirmPassCheckBox.Size = new System.Drawing.Size(175, 24);
             this.showConfirmPassCheckBox.TabIndex = 3;
             this.showConfirmPassCheckBox.Text = "Показать пароль";
             this.showConfirmPassCheckBox.UseVisualStyleBackColor = true;
@@ -273,7 +273,7 @@
             this.dateTimePicker.MaxDate = new System.DateTime(2005, 12, 31, 0, 0, 0, 0);
             this.dateTimePicker.MinDate = new System.DateTime(1950, 1, 1, 0, 0, 0, 0);
             this.dateTimePicker.Name = "dateTimePicker";
-            this.dateTimePicker.Size = new System.Drawing.Size(274, 25);
+            this.dateTimePicker.Size = new System.Drawing.Size(274, 26);
             this.dateTimePicker.TabIndex = 4;
             this.dateTimePicker.Value = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
             // 
@@ -284,7 +284,7 @@
             this.birthLabel.Location = new System.Drawing.Point(50, 257);
             this.birthLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.birthLabel.Name = "birthLabel";
-            this.birthLabel.Size = new System.Drawing.Size(124, 18);
+            this.birthLabel.Size = new System.Drawing.Size(141, 20);
             this.birthLabel.TabIndex = 1;
             this.birthLabel.Text = "Дата рождения";
             // 
@@ -295,13 +295,14 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Gotham", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(31, 5);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(107, 13);
+            this.label2.Size = new System.Drawing.Size(97, 15);
             this.label2.TabIndex = 10;
             this.label2.Text = "Student Transfer";
+            this.label2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.StudentForm_MouseDown);
             // 
             // pictureBox1
             // 
@@ -312,6 +313,7 @@
             this.pictureBox1.Size = new System.Drawing.Size(22, 15);
             this.pictureBox1.TabIndex = 9;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.StudentForm_MouseDown);
             // 
             // button2
             // 
@@ -335,7 +337,7 @@
             this.authButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.authButton.FlatAppearance.BorderSize = 0;
             this.authButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.authButton.Font = new System.Drawing.Font("Gotham", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.authButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.authButton.Location = new System.Drawing.Point(35, 594);
             this.authButton.Name = "authButton";
             this.authButton.Size = new System.Drawing.Size(342, 38);
@@ -347,11 +349,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Gotham", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(57, 55);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(183, 36);
+            this.label1.Size = new System.Drawing.Size(194, 37);
             this.label1.TabIndex = 12;
             this.label1.Text = "Регистрация";
             // 
@@ -365,10 +367,11 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(411, 25);
             this.panel1.TabIndex = 13;
+            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.StudentForm_MouseDown);
             // 
             // RegistrationForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 18F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(411, 637);
@@ -394,7 +397,7 @@
             this.Controls.Add(this.passwordTextBox);
             this.Controls.Add(this.nameTextBox);
             this.Controls.Add(this.surnameTextBox);
-            this.Font = new System.Drawing.Font("Gotham", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);

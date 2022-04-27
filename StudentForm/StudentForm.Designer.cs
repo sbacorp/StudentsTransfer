@@ -34,12 +34,10 @@ namespace StudentsTransfer
             this.buttonMain = new System.Windows.Forms.Button();
             this.buttonApplications = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBoxSetting = new System.Windows.Forms.PictureBox();
             this.buttonSetting = new System.Windows.Forms.Button();
             this.panelContent = new System.Windows.Forms.Panel();
             this.MenuPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSetting)).BeginInit();
             this.SuspendLayout();
             // 
             // MenuPanel
@@ -49,7 +47,6 @@ namespace StudentsTransfer
             this.MenuPanel.Controls.Add(this.buttonMain);
             this.MenuPanel.Controls.Add(this.buttonApplications);
             this.MenuPanel.Controls.Add(this.pictureBox1);
-            this.MenuPanel.Controls.Add(this.pictureBoxSetting);
             this.MenuPanel.Controls.Add(this.buttonSetting);
             resources.ApplyResources(this.MenuPanel, "MenuPanel");
             this.MenuPanel.Name = "MenuPanel";
@@ -79,13 +76,6 @@ namespace StudentsTransfer
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.TabStop = false;
             // 
-            // pictureBoxSetting
-            // 
-            this.pictureBoxSetting.Image = global::StudentsTransfer.Properties.Resources.setting;
-            resources.ApplyResources(this.pictureBoxSetting, "pictureBoxSetting");
-            this.pictureBoxSetting.Name = "pictureBoxSetting";
-            this.pictureBoxSetting.TabStop = false;
-            // 
             // buttonSetting
             // 
             this.buttonSetting.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
@@ -93,8 +83,7 @@ namespace StudentsTransfer
             this.buttonSetting.ForeColor = System.Drawing.SystemColors.ControlText;
             this.buttonSetting.Name = "buttonSetting";
             this.buttonSetting.UseVisualStyleBackColor = true;
-            this.buttonSetting.MouseEnter += new System.EventHandler(this.MenuPanel_MouseEnter);
-            this.buttonSetting.MouseLeave += new System.EventHandler(this.buttonSetting_MouseLeave);
+            this.buttonSetting.Click += new System.EventHandler(this.buttonSetting_Click);
             // 
             // panelContent
             // 
@@ -112,7 +101,6 @@ namespace StudentsTransfer
             this.Load += new System.EventHandler(this.StudentForm_Load);
             this.MenuPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSetting)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -120,11 +108,10 @@ namespace StudentsTransfer
         #endregion
 
         private System.Windows.Forms.Panel MenuPanel;
-        private System.Windows.Forms.PictureBox pictureBoxSetting;
         private System.Windows.Forms.Button buttonSetting;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Panel panelContent;
         private System.Windows.Forms.Button buttonMain;
         private System.Windows.Forms.Button buttonApplications;
+        private System.Windows.Forms.Panel panelContent;
     }
 }

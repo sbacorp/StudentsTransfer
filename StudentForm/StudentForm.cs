@@ -15,11 +15,13 @@ namespace StudentsTransfer
         Form formInPanel;
         StudentInfo studInfo;
         Statements statements;
-        public StudentForm()
+        private readonly int idUser;
+        public StudentForm(int idUser)
         {
             InitializeComponent();
             DoubleBuffered = true;
             SetStyle(ControlStyles.ResizeRedraw, true);
+            this.idUser = idUser;
         }
         private void StudentForm_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -38,7 +40,7 @@ namespace StudentsTransfer
         {
             if (studInfo ==null)
             {
-                studInfo = new StudentInfo(this);
+                studInfo = new StudentInfo(this, idUser);
             }
             if (this.panelContent.Controls.Contains(formInPanel))
             {
@@ -63,17 +65,9 @@ namespace StudentsTransfer
             this.panelContent.Controls.Add(formInPanel);
             statements.Show();
         }
-
-        private void MenuPanel_MouseEnter(object sender, EventArgs e)
+        private void buttonSetting_Click(object sender, EventArgs e)
         {
-
-            pictureBoxSetting.Image.RotateFlip(RotateFlipType.Rotate90FlipY);
-            pictureBoxSetting.Image = pictureBoxSetting.Image;
-        }
-        private void buttonSetting_MouseLeave(object sender, EventArgs e)
-        {
-            pictureBoxSetting.Image.RotateFlip(RotateFlipType.Rotate90FlipY);
-            pictureBoxSetting.Image = pictureBoxSetting.Image;
+            EmployeeDB.ReadUniversities();
         }
     }
 }

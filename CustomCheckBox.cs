@@ -11,13 +11,13 @@ namespace StudentsTransfer
     {
         public readonly int ID_University;
 
-        public CustomCheckBox(int iD_University, EventHandler click)
+        public CustomCheckBox(int iD_University,string name, EventHandler click)
         {
             ID_University = iD_University;
             this.Click += click;
             Dock = DockStyle.Top;
             Appearance = Appearance.Button;
-            Text = $"University {ID_University}";
+            Text = name;
             TabIndex = ID_University;
         }
     }

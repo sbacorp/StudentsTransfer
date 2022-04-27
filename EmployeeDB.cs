@@ -19,6 +19,14 @@ namespace StudentsTransfer
             " mail VARCHAR UNIQUE NOT NULL," +
             " dateOfBirth DATE DEFAULT(1012000) NOT NULL," +
             " password VARCHAR NOT NULL);";
+        private const string CREATE_TABLE_UNIVERSITY = "CREATE TABLE universities " +
+            "(id INTEGER PRIMARY KEY AUTOINCREMENT," +
+            "name STRING  UNIQUE NOT NULL);";
+        private const string CREATE_TABLE_APPLICATIONS = "CREATE TABLE applications " +
+            "([id] INTEGER PRIMARY KEY AUTOINCREMENT," +
+            " user_id INTEGER REFERENCES users(id) NOT NULL," +
+            " university_id INTEGER REFERENCES universities(id) NOT NULL," +
+            " status STRING NOT NULL);"; 
         private static void CreateDBTables()
         {
             using (var connection = new SQLiteConnection(PATHBD_CONNECT_WRC))
@@ -26,9 +34,13 @@ namespace StudentsTransfer
                 connection.Open();
                 var command = new SQLiteCommand(CREATE_TABLE_USERS, connection);
                 command.ExecuteNonQuery();
+                command.CommandText = CREATE_TABLE_UNIVERSITY;
+                command.ExecuteNonQuery();
+                command.CommandText = CREATE_TABLE_APPLICATIONS;
+                command.ExecuteNonQuery();
             }
         }
-        public static object[] ReadUserInfo(string mail)
+        public static object[] ReadUserInfoMail(string mail)
         {
             if (!File.Exists("StudTransfer.db"))
             {
@@ -41,9 +53,8 @@ namespace StudentsTransfer
                 var command = new SQLiteCommand(findExpression, connection);
                 using (var reader = command.ExecuteReader())
                 {
-                    if (reader.HasRows)
+                    if (reader.HasRows && reader.Read())
                     {
-                        reader.Read();
                         return new object[] { reader.GetValue(1),
                             reader.GetValue(2),
                             reader.GetValue(3),
@@ -53,6 +64,83 @@ namespace StudentsTransfer
                 }
             }
             return null;
+        }
+        public static object[] ReadUserInfoId(int id)
+        {
+            if (!File.Exists("StudTransfer.db"))
+            {
+                CreateDBTables();
+            }
+            using (var connection = new SQLiteConnection(PATHBD_CONNECT_RO))
+            {
+                connection.Open();
+                string findExpression = $"SELECT * FROM users WHERE id={id}";
+                var command = new SQLiteCommand(findExpression, connection);
+                using (var reader = command.ExecuteReader())
+                {
+                    if (reader.HasRows && reader.Read())
+                    {
+                        return new object[] { reader.GetValue(1),
+                            reader.GetValue(2),
+                            reader.GetValue(3),
+                            reader.GetDateTime(4)};
+                    }
+                }
+            }
+            return null;
+        }
+        public static List<object[]> ReadUniversities()
+        {
+            if (!File.Exists("StudTransfer.db"))
+            {
+                CreateDBTables();
+            }
+            var universities = new List<object[]>();
+            using (var connection = new SQLiteConnection(PATHBD_CONNECT_RO))
+            {
+                connection.Open();
+                string findExpression = $"SELECT * FROM universities";
+                var command = new SQLiteCommand(findExpression, connection);
+                using (var reader = command.ExecuteReader())
+                {
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            universities.Add(new object[] { reader.GetValue(0),
+                            reader.GetValue(1)}); 
+                        }
+                    }
+                }
+            }
+            universities.Reverse();
+            return universities;
+        }
+        public static List<object[]> ReadUserApplications(int id)
+        {
+            if (!File.Exists("StudTransfer.db"))
+            {
+                CreateDBTables();
+            }
+            var applications = new List<object[]>();
+            using (var connection = new SQLiteConnection(PATHBD_CONNECT_RO))
+            {
+                connection.Open();
+                string findExpression = $"SELECT * FROM applications WHERE user_id={id}";
+                var command = new SQLiteCommand(findExpression, connection);
+                using (var reader = command.ExecuteReader())
+                {
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            applications.Add(new object[] { reader.GetValue(1),
+                                                reader.GetValue(2)}); 
+                        }
+                    }
+                }
+            }
+            return applications;
         }
         public static void AddUser(string[] data)
         {
@@ -72,6 +160,18 @@ namespace StudentsTransfer
                 connection.Open();
                 string expression = $"INSERT INTO universities (name)" +
                     $" VALUES('{name}']);";
+                var command = new SQLiteCommand(expression, connection);
+                command.ExecuteNonQuery();
+            }
+        }
+        public static void AddApplications(int idUser, int idUniversity)
+        {
+            using (var connection = new SQLiteConnection(PATHBD_CONNECT_WRC))
+            {
+                connection.Open();
+                string expression = $"INSERT INTO applications" +
+                    $"(user_id, university_id, status) " +
+                    $"VALUES({idUser}, {idUniversity} ,\"not checked\")";
                 var command = new SQLiteCommand(expression, connection);
                 command.ExecuteNonQuery();
             }
