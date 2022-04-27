@@ -36,6 +36,7 @@ namespace StudentsTransfer
 
         private void buttonMain_Click(object sender, EventArgs e)
         {
+            
             if (studInfo ==null)
             {
                 studInfo = new StudentInfo(this);
@@ -67,13 +68,11 @@ namespace StudentsTransfer
         private void MenuPanel_MouseEnter(object sender, EventArgs e)
         {
 
-            pictureBoxSetting.Image.RotateFlip(RotateFlipType.Rotate90FlipY);
-            pictureBoxSetting.Image = pictureBoxSetting.Image;
         }
+
         private void buttonSetting_MouseLeave(object sender, EventArgs e)
         {
-            pictureBoxSetting.Image.RotateFlip(RotateFlipType.Rotate90FlipY);
-            pictureBoxSetting.Image = pictureBoxSetting.Image;
+
         }
     }
 }

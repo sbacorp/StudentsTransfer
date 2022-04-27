@@ -34,30 +34,28 @@ namespace StudentsTransfer
             this.buttonMain = new System.Windows.Forms.Button();
             this.buttonApplications = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBoxSetting = new System.Windows.Forms.PictureBox();
             this.buttonSetting = new System.Windows.Forms.Button();
             this.panelContent = new System.Windows.Forms.Panel();
             this.MenuPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSetting)).BeginInit();
             this.SuspendLayout();
             // 
             // MenuPanel
             // 
             this.MenuPanel.BackColor = System.Drawing.Color.Transparent;
             this.MenuPanel.BackgroundImage = global::StudentsTransfer.Properties.Resources.Безымянный_1;
-            this.MenuPanel.Controls.Add(this.buttonMain);
-            this.MenuPanel.Controls.Add(this.buttonApplications);
-            this.MenuPanel.Controls.Add(this.pictureBox1);
-            this.MenuPanel.Controls.Add(this.pictureBoxSetting);
             this.MenuPanel.Controls.Add(this.buttonSetting);
+            this.MenuPanel.Controls.Add(this.buttonApplications);
+            this.MenuPanel.Controls.Add(this.buttonMain);
+            this.MenuPanel.Controls.Add(this.pictureBox1);
             resources.ApplyResources(this.MenuPanel, "MenuPanel");
             this.MenuPanel.Name = "MenuPanel";
             // 
             // buttonMain
             // 
-            this.buttonMain.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.buttonMain, "buttonMain");
+            this.buttonMain.FlatAppearance.BorderSize = 0;
+            this.buttonMain.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.buttonMain.ForeColor = System.Drawing.SystemColors.ControlText;
             this.buttonMain.Name = "buttonMain";
             this.buttonMain.UseVisualStyleBackColor = true;
@@ -65,8 +63,9 @@ namespace StudentsTransfer
             // 
             // buttonApplications
             // 
-            this.buttonApplications.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.buttonApplications, "buttonApplications");
+            this.buttonApplications.FlatAppearance.BorderSize = 0;
+            this.buttonApplications.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.buttonApplications.ForeColor = System.Drawing.SystemColors.ControlText;
             this.buttonApplications.Name = "buttonApplications";
             this.buttonApplications.UseVisualStyleBackColor = true;
@@ -75,26 +74,18 @@ namespace StudentsTransfer
             // pictureBox1
             // 
             resources.ApplyResources(this.pictureBox1, "pictureBox1");
-            this.pictureBox1.Image = global::StudentsTransfer.Properties.Resources.transfer;
+            this.pictureBox1.Image = global::StudentsTransfer.Properties.Resources.change;
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.TabStop = false;
             // 
-            // pictureBoxSetting
-            // 
-            this.pictureBoxSetting.Image = global::StudentsTransfer.Properties.Resources.setting;
-            resources.ApplyResources(this.pictureBoxSetting, "pictureBoxSetting");
-            this.pictureBoxSetting.Name = "pictureBoxSetting";
-            this.pictureBoxSetting.TabStop = false;
-            // 
             // buttonSetting
             // 
-            this.buttonSetting.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.buttonSetting, "buttonSetting");
+            this.buttonSetting.FlatAppearance.BorderSize = 0;
+            this.buttonSetting.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.buttonSetting.ForeColor = System.Drawing.SystemColors.ControlText;
             this.buttonSetting.Name = "buttonSetting";
             this.buttonSetting.UseVisualStyleBackColor = true;
-            this.buttonSetting.MouseEnter += new System.EventHandler(this.MenuPanel_MouseEnter);
-            this.buttonSetting.MouseLeave += new System.EventHandler(this.buttonSetting_MouseLeave);
             // 
             // panelContent
             // 
@@ -112,7 +103,6 @@ namespace StudentsTransfer
             this.Load += new System.EventHandler(this.StudentForm_Load);
             this.MenuPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSetting)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -120,7 +110,6 @@ namespace StudentsTransfer
         #endregion
 
         private System.Windows.Forms.Panel MenuPanel;
-        private System.Windows.Forms.PictureBox pictureBoxSetting;
         private System.Windows.Forms.Button buttonSetting;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panelContent;

@@ -170,6 +170,7 @@
     <None Include="Resources\Безымянный-2.jpg" />
     <None Include="Resources\close %281%29.png" />
     <None Include="Resources\Безымянный-1.jpg" />
+    <None Include="Resources\change.png" />
     <Content Include="Resources\setting.png" />
     <Content Include="transfer.ico" />
   </ItemGroup>
