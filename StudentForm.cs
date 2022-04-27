@@ -12,9 +12,9 @@ namespace StudentsTransfer
 {
     public partial class StudentForm : Form
     {
-        Form formInPanel;
-        StudentInfo studInfo;
-        Statements statements;
+       
+        private Form activeForm;
+        private Button currentButton;
         public StudentForm()
         {
             InitializeComponent();
@@ -26,8 +26,47 @@ namespace StudentsTransfer
             Application.Exit();
         }
 
-
-        
+        private void ActivateButton(object btnSender)
+        {
+            if (btnSender != null)
+            {
+                if (currentButton != (Button)btnSender)
+                {
+                    DisableButton();
+                    currentButton = (Button)btnSender;
+                    currentButton.ForeColor = Color.Black;
+                    currentButton.Font = new System.Drawing.Font("Gotham", 23F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
+                }
+            }
+        }
+        private void DisableButton()
+        {
+            foreach (Control previousBtn in MenuPanel.Controls)
+            {
+                if (previousBtn.GetType() == typeof(Button))
+                {
+                    previousBtn.BackColor = Color.Transparent;
+                    previousBtn.ForeColor = Color.Black;
+                    previousBtn.Font = new System.Drawing.Font("Gotham", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+                }
+            }
+        }
+        private void OpenChildForm(Form childForm, object btnSender)
+        {
+            if (activeForm != null)
+            {
+                activeForm.Close();
+            }
+            ActivateButton(btnSender);
+            activeForm = childForm;
+            childForm.TopLevel = false;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+            this.panelContent.Controls.Add(childForm);
+            this.panelContent.Tag = childForm;
+            childForm.BringToFront();
+            childForm.Show();
+        }
 
         private void StudentForm_Load(object sender, EventArgs e)
         {
@@ -35,44 +74,19 @@ namespace StudentsTransfer
         }
 
         private void buttonMain_Click(object sender, EventArgs e)
-        {
+        { 
             
-            if (studInfo ==null)
-            {
-                studInfo = new StudentInfo(this);
-            }
-            if (this.panelContent.Controls.Contains(formInPanel))
-            {
-                panelContent.Controls.Remove(formInPanel);
-            }
-            formInPanel = studInfo;
-            this.panelContent.Controls.Add(formInPanel);
-            studInfo.Show();
+            OpenChildForm(new StudentInfo(this), sender);
         }
 
         private void buttonApplications_Click(object sender, EventArgs e)
         {
-            if (statements == null)
-            {
-                statements = new Statements();
-            }
-            if (this.panelContent.Controls.Contains(formInPanel))
-            {
-                panelContent.Controls.Remove(formInPanel);
-            }
-            formInPanel = statements;
-            this.panelContent.Controls.Add(formInPanel);
-            statements.Show();
+            OpenChildForm(new Statements(), sender);
         }
 
-        private void MenuPanel_MouseEnter(object sender, EventArgs e)
+        private void buttonSetting_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void buttonSetting_MouseLeave(object sender, EventArgs e)
-        {
-
+            OpenChildForm(new Settings(), sender);
         }
     }
 }

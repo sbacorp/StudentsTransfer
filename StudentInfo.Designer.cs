@@ -111,6 +111,7 @@ namespace StudentsTransfer
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "StudentInfo";
             this.Text = "StudentInfo";
+            this.Load += new System.EventHandler(this.StudentInfo_Load);
             this.SizeChanged += new System.EventHandler(this.StudentInfo_SizeChanged);
             ((System.ComponentModel.ISupportInitialize)(this.pbPhoto)).EndInit();
             this.ResumeLayout(false);

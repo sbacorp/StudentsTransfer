@@ -30,53 +30,31 @@ namespace StudentsTransfer
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StudentForm));
-            this.MenuPanel = new System.Windows.Forms.Panel();
-            this.buttonMain = new System.Windows.Forms.Button();
-            this.buttonApplications = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.buttonSetting = new System.Windows.Forms.Button();
             this.panelContent = new System.Windows.Forms.Panel();
+            this.MenuPanel = new System.Windows.Forms.Panel();
+            this.buttonSetting = new System.Windows.Forms.Button();
+            this.buttonStatements = new System.Windows.Forms.Button();
+            this.buttonMain = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.MenuPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
+            // 
+            // panelContent
+            // 
+            resources.ApplyResources(this.panelContent, "panelContent");
+            this.panelContent.Name = "panelContent";
             // 
             // MenuPanel
             // 
             this.MenuPanel.BackColor = System.Drawing.Color.Transparent;
             this.MenuPanel.BackgroundImage = global::StudentsTransfer.Properties.Resources.Безымянный_1;
             this.MenuPanel.Controls.Add(this.buttonSetting);
-            this.MenuPanel.Controls.Add(this.buttonApplications);
+            this.MenuPanel.Controls.Add(this.buttonStatements);
             this.MenuPanel.Controls.Add(this.buttonMain);
             this.MenuPanel.Controls.Add(this.pictureBox1);
             resources.ApplyResources(this.MenuPanel, "MenuPanel");
             this.MenuPanel.Name = "MenuPanel";
-            // 
-            // buttonMain
-            // 
-            resources.ApplyResources(this.buttonMain, "buttonMain");
-            this.buttonMain.FlatAppearance.BorderSize = 0;
-            this.buttonMain.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.buttonMain.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.buttonMain.Name = "buttonMain";
-            this.buttonMain.UseVisualStyleBackColor = true;
-            this.buttonMain.Click += new System.EventHandler(this.buttonMain_Click);
-            // 
-            // buttonApplications
-            // 
-            resources.ApplyResources(this.buttonApplications, "buttonApplications");
-            this.buttonApplications.FlatAppearance.BorderSize = 0;
-            this.buttonApplications.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.buttonApplications.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.buttonApplications.Name = "buttonApplications";
-            this.buttonApplications.UseVisualStyleBackColor = true;
-            this.buttonApplications.Click += new System.EventHandler(this.buttonApplications_Click);
-            // 
-            // pictureBox1
-            // 
-            resources.ApplyResources(this.pictureBox1, "pictureBox1");
-            this.pictureBox1.Image = global::StudentsTransfer.Properties.Resources.change;
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.TabStop = false;
             // 
             // buttonSetting
             // 
@@ -86,11 +64,36 @@ namespace StudentsTransfer
             this.buttonSetting.ForeColor = System.Drawing.SystemColors.ControlText;
             this.buttonSetting.Name = "buttonSetting";
             this.buttonSetting.UseVisualStyleBackColor = true;
+            this.buttonSetting.Click += new System.EventHandler(this.buttonSetting_Click);
             // 
-            // panelContent
+            // buttonStatements
             // 
-            resources.ApplyResources(this.panelContent, "panelContent");
-            this.panelContent.Name = "panelContent";
+            resources.ApplyResources(this.buttonStatements, "buttonStatements");
+            this.buttonStatements.FlatAppearance.BorderSize = 0;
+            this.buttonStatements.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.buttonStatements.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.buttonStatements.Image = global::StudentsTransfer.Properties.Resources.bank_statement;
+            this.buttonStatements.Name = "buttonStatements";
+            this.buttonStatements.UseVisualStyleBackColor = true;
+            this.buttonStatements.Click += new System.EventHandler(this.buttonApplications_Click);
+            // 
+            // buttonMain
+            // 
+            resources.ApplyResources(this.buttonMain, "buttonMain");
+            this.buttonMain.FlatAppearance.BorderSize = 0;
+            this.buttonMain.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.buttonMain.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.buttonMain.Image = global::StudentsTransfer.Properties.Resources.user;
+            this.buttonMain.Name = "buttonMain";
+            this.buttonMain.UseVisualStyleBackColor = true;
+            this.buttonMain.Click += new System.EventHandler(this.buttonMain_Click);
+            // 
+            // pictureBox1
+            // 
+            resources.ApplyResources(this.pictureBox1, "pictureBox1");
+            this.pictureBox1.Image = global::StudentsTransfer.Properties.Resources.change;
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.TabStop = false;
             // 
             // StudentForm
             // 
@@ -114,6 +117,6 @@ namespace StudentsTransfer
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panelContent;
         private System.Windows.Forms.Button buttonMain;
-        private System.Windows.Forms.Button buttonApplications;
+        private System.Windows.Forms.Button buttonStatements;
     }
 }

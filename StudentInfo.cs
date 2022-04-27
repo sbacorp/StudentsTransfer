@@ -36,8 +36,7 @@ namespace StudentsTransfer
 
             
         }
-
-
+        
         private void StudentInfo_SizeChanged(object sender, EventArgs e)
         {
             //this.pictureBox1.Location = new Point(Size.Subtract(this.Size, pictureBox1.Size)) { Y=0};
@@ -56,5 +55,9 @@ namespace StudentsTransfer
             activeBox = putBox.Checked ? putBox : null;
         }
 
+        private void StudentInfo_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
