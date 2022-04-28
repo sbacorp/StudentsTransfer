@@ -42,20 +42,20 @@ namespace StudentsTransfer
             if (panelContent.Controls.Contains(formInPanel))
             {
                 panelContent.Controls.Remove(formInPanel);
-            }
+                }
             formInPanel = selectedForm;
             panelContent.Controls.Add(formInPanel);
             selectedForm.Show();
-        }
+            }
         private void buttonMain_Click(object sender, EventArgs e)
         {
             if (studInfo == null)
             {
                 studInfo = new StudentInfo(idUser, ExitToLogin);
-            }
+                }
             PanelContent_Selected(studInfo);
             ActivateButton(sender);
-        }
+            }
 
         private void buttonApplications_Click(object sender, EventArgs e)
         {
@@ -70,13 +70,13 @@ namespace StudentsTransfer
         private void ActivateButton(object sender)
         {
             if (sender != null && activeButton != (Button)sender)
-            {
+        {
                 DisableButtons();
                 activeButton = (Button)sender;
                 // Настройка внешн активированной кнопки
-                activeButton.BackColor = Color.FromArgb(255, 102, 255);
-                activeButton.ForeColor = Color.White;
-                activeButton.Font = new Font(activeButton.Font, FontStyle.Bold);
+
+                activeButton.ForeColor = Color.Black;
+                activeButton.Font = new System.Drawing.Font("Gotham", 23F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
             }
         }
 
@@ -85,10 +85,10 @@ namespace StudentsTransfer
             foreach (Control btn in MenuPanel.Controls)
             {
                 if (btn.GetType() == typeof(Button))
-                {
+        { 
                     btn.BackColor = Color.Transparent;
                     btn.ForeColor = Color.Black;
-                    btn.Font = new Font(btn.Font, FontStyle.Regular);
+                    btn.Font = new System.Drawing.Font("Gotham", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
                 }
             }
         }
@@ -101,7 +101,7 @@ namespace StudentsTransfer
         private void StudentForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             if (fullClosing)
-            {
+        {
                 Application.Exit();
             }
         }
