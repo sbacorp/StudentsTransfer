@@ -13,42 +13,48 @@ namespace StudentsTransfer
     public partial class StudentForm : Form
     {
         Form formInPanel;
+        MainForm parent;
         StudentInfo studInfo;
         Statements statements;
+        private bool fullClosing;
+        private Button activeButton;
         private readonly int idUser;
-        public StudentForm(int idUser)
+        public StudentForm(MainForm parent, int idUser)
         {
             InitializeComponent();
+            this.parent = parent;
+            fullClosing = true;
             DoubleBuffered = true;
             SetStyle(ControlStyles.ResizeRedraw, true);
             this.idUser = idUser;
         }
-        private void StudentForm_FormClosed(object sender, FormClosedEventArgs e)
+        private void ExitToLogin()
         {
-            Application.Exit();
+            studInfo?.Close();
+            statements?.Close();
+            fullClosing = false;
+            this.Close();
+            parent.OutLogin();
+            parent.Show();
         }
-
-
-        
-
-        private void StudentForm_Load(object sender, EventArgs e)
+        private void PanelContent_Selected(Form selectedForm)
         {
-            
-        }
-
-        private void buttonMain_Click(object sender, EventArgs e)
-        {
-            if (studInfo ==null)
-            {
-                studInfo = new StudentInfo(this, idUser);
-            }
-            if (this.panelContent.Controls.Contains(formInPanel))
+            if (panelContent.Controls.Contains(formInPanel))
             {
                 panelContent.Controls.Remove(formInPanel);
             }
-            formInPanel = studInfo;
-            this.panelContent.Controls.Add(formInPanel);
-            studInfo.Show();
+            formInPanel = selectedForm;
+            panelContent.Controls.Add(formInPanel);
+            selectedForm.Show();
+        }
+        private void buttonMain_Click(object sender, EventArgs e)
+        {
+            if (studInfo == null)
+            {
+                studInfo = new StudentInfo(idUser, ExitToLogin);
+            }
+            PanelContent_Selected(studInfo);
+            ActivateButton(sender);
         }
 
         private void buttonApplications_Click(object sender, EventArgs e)
@@ -57,17 +63,47 @@ namespace StudentsTransfer
             {
                 statements = new Statements();
             }
-            if (this.panelContent.Controls.Contains(formInPanel))
-            {
-                panelContent.Controls.Remove(formInPanel);
-            }
-            formInPanel = statements;
-            this.panelContent.Controls.Add(formInPanel);
-            statements.Show();
+            PanelContent_Selected(statements);
+            ActivateButton(sender);
         }
+
+        private void ActivateButton(object sender)
+        {
+            if (sender != null && activeButton != (Button)sender)
+            {
+                DisableButtons();
+                activeButton = (Button)sender;
+                // Настройка внешн активированной кнопки
+                activeButton.BackColor = Color.FromArgb(255, 102, 255);
+                activeButton.ForeColor = Color.White;
+                activeButton.Font = new Font(activeButton.Font, FontStyle.Bold);
+            }
+        }
+
+        private void DisableButtons()
+        {
+            foreach (Control btn in MenuPanel.Controls)
+            {
+                if (btn.GetType() == typeof(Button))
+                {
+                    btn.BackColor = Color.Transparent;
+                    btn.ForeColor = Color.Black;
+                    btn.Font = new Font(btn.Font, FontStyle.Regular);
+                }
+            }
+        }
+
         private void buttonSetting_Click(object sender, EventArgs e)
         {
-            EmployeeDB.ReadUniversities();
+            ActivateButton(sender);
+        }
+
+        private void StudentForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (fullClosing)
+            {
+                Application.Exit();
+            }
         }
     }
 }

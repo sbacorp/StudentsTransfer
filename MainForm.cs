@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SQLite;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -19,7 +20,8 @@ namespace StudentsTransfer
         AdminForm adminForm;
         StudentForm studentForm;
         RegistrationForm registrationForm;
-
+        private string PATH_SESSION = $@"{Environment.CurrentDirectory}\Resources\lastSession.txt";
+        private bool goLastSession;
         public MainForm()
         {
             InitializeComponent();
@@ -54,8 +56,10 @@ namespace StudentsTransfer
                         int id = 0;
                         if (reader.HasRows && reader.Read() && int.TryParse(reader.GetValue(0).ToString(), out id))
                         {
-                            studentForm = new StudentForm(id);
+                            CheckOutBox();
+                            studentForm = new StudentForm(this, id);
                             this.Hide();
+                            passwordTextBox.Text = string.Empty;
                             studentForm.Show();
                             return;
                         }
@@ -64,6 +68,16 @@ namespace StudentsTransfer
             }
             incorrectDataLabel.Text = "Неверные логин или пароль";
             incorrectDataLabel.Visible = true;
+        }
+
+        private void CheckOutBox()
+        {
+            if (checkBox1.Checked)
+            {
+                File.WriteAllText(PATH_SESSION,
+                    string.Join("\n", loginTextBox.Text, passwordTextBox.Text));
+                return;
+            }
         }
 
         private void createAccButton_Click(object sender, EventArgs e)
@@ -94,7 +108,10 @@ namespace StudentsTransfer
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
-
+            if (goLastSession)
+            {
+                this.Hide();
+            }
         }
         #region MoveForm
         //Нашел на стеке сам бы такое не написал
@@ -124,5 +141,21 @@ namespace StudentsTransfer
             }
         }
 
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            string fileContent;
+            if ((fileContent = File.ReadAllText(PATH_SESSION)) != string.Empty)
+            {
+                goLastSession = true;
+                loginTextBox.Text = fileContent.Split('\n')[0];
+                passwordTextBox.Text = fileContent.Split('\n')[1];
+                authButton.PerformClick();
+            }
+        }
+        public void OutLogin()
+        {
+            File.WriteAllText(PATH_SESSION, string.Empty);
+            goLastSession = false;
+        }
     }
 }

@@ -12,24 +12,25 @@ namespace StudentsTransfer
 {
     public partial class StudentInfo : Form
     {
-        Form parent;
-        CheckBox lastBox;
+        
+        private CheckBox lastBox;
         private readonly int idUser;
         private int selectUnivID;
-        public StudentInfo(StudentForm parent, int idUser)
+        private Action exit;
+        public StudentInfo(int idUser, Action exit)
         {
             InitializeComponent();
+            this.exit = exit;
             this.TopLevel = false;
             this.TopMost = true;
             this.Dock = DockStyle.Fill;
-            this.parent = parent;
             this.idUser = idUser;
             selectUnivID = -1;
-            panel1.AutoScroll = false;  
-            panel1.HorizontalScroll.Enabled = false;
-            panel1.HorizontalScroll.Visible = false;
-            panel1.HorizontalScroll.Maximum = 0;
-            panel1.AutoScroll = true;
+            panelUniversisties.AutoScroll = false;  
+            panelUniversisties.HorizontalScroll.Enabled = false;
+            panelUniversisties.HorizontalScroll.Visible = false;
+            panelUniversisties.HorizontalScroll.Maximum = 0;
+            panelUniversisties.AutoScroll = true;
             //Чтение вузов из бд и закидываем чекбоксы
             foreach (var university in EmployeeDB.ReadUniversities())
             {
@@ -37,7 +38,7 @@ namespace StudentsTransfer
                 if (int.TryParse(university[0].ToString(), out id) )
                 {
                     var box = new CustomCheckBox(id, university[1].ToString(), cBoxs_Click);
-                    this.panel1.Controls.Add(box); 
+                    this.panelUniversisties.Controls.Add(box); 
                 }
             }
 
@@ -47,9 +48,19 @@ namespace StudentsTransfer
 
         private void StudentInfo_SizeChanged(object sender, EventArgs e)
         {
+            int padding = 20;
             //this.pictureBox1.Location = new Point(Size.Subtract(this.Size, pictureBox1.Size)) { Y=0};
-            
-            
+            int newWidth = (Width - padding) / 3;
+            foreach (Control item in this.Controls)
+            {
+                int oldWidth = item.Width;
+                item.Width = newWidth;
+            }
+            panelUniversisties.Location = new Point(newWidth + 2 * padding, panelUniversisties.Location.Y);
+            pbPhoto.Location = new Point(newWidth+2* padding, pbPhoto.Location.Y);
+            buttonSend.Location = new Point(newWidth + 2 * padding, buttonSend.Location.Y);
+            buttonExit.Width = 72;
+            buttonExit.Location = new Point(Width-buttonExit.Width, pbPhoto.Location.Y);
         }
 
         private void cBoxs_Click(object sender, EventArgs e)
@@ -82,6 +93,19 @@ namespace StudentsTransfer
             tbLastName.Text = info[1].ToString();
             tbMail.Text = info[2].ToString();
             dateTimePicker1.Value = (DateTime)info[3];
+        }
+
+        private void buttonExit_Click(object sender, EventArgs e)
+        {
+            exit?.Invoke();
+        }
+
+        private void panelInfo_SizeChanged(object sender, EventArgs e)
+        {
+            foreach (Control item in panelInfo.Controls)
+            {
+                item.Width = panelInfo.Width;
+            }
         }
     }
 }

@@ -346,7 +346,7 @@
     <value>342, 35</value>
   </data>
   <data name="passwordTextBox.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="&gt;&gt;passwordTextBox.Name" xml:space="preserve">
     <value>passwordTextBox</value>

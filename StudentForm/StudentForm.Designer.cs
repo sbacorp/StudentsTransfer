@@ -53,11 +53,12 @@ namespace StudentsTransfer
             // 
             // buttonMain
             // 
+            this.buttonMain.BackColor = System.Drawing.Color.Transparent;
             this.buttonMain.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.buttonMain, "buttonMain");
             this.buttonMain.ForeColor = System.Drawing.SystemColors.ControlText;
             this.buttonMain.Name = "buttonMain";
-            this.buttonMain.UseVisualStyleBackColor = true;
+            this.buttonMain.UseVisualStyleBackColor = false;
             this.buttonMain.Click += new System.EventHandler(this.buttonMain_Click);
             // 
             // buttonApplications
@@ -98,7 +99,6 @@ namespace StudentsTransfer
             this.Controls.Add(this.MenuPanel);
             this.Name = "StudentForm";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.StudentForm_FormClosed);
-            this.Load += new System.EventHandler(this.StudentForm_Load);
             this.MenuPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

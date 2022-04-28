@@ -31,12 +31,15 @@ namespace StudentsTransfer
         {
             this.pbPhoto = new System.Windows.Forms.PictureBox();
             this.tbName = new System.Windows.Forms.TextBox();
-            this.tbLastName = new System.Windows.Forms.TextBox();
-            this.tbMail = new System.Windows.Forms.TextBox();
+            this.panelUniversisties = new System.Windows.Forms.Panel();
+            this.buttonSend = new System.Windows.Forms.Button();
+            this.buttonExit = new System.Windows.Forms.Button();
+            this.panelInfo = new System.Windows.Forms.Panel();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.bSend = new System.Windows.Forms.Button();
+            this.tbMail = new System.Windows.Forms.TextBox();
+            this.tbLastName = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbPhoto)).BeginInit();
+            this.panelInfo.SuspendLayout();
             this.SuspendLayout();
             // 
             // pbPhoto
@@ -50,72 +53,94 @@ namespace StudentsTransfer
             // 
             // tbName
             // 
-            this.tbName.Location = new System.Drawing.Point(12, 24);
+            this.tbName.Location = new System.Drawing.Point(0, 14);
             this.tbName.MaxLength = 35;
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(139, 20);
             this.tbName.TabIndex = 1;
             // 
-            // tbLastName
+            // panelUniversisties
             // 
-            this.tbLastName.Location = new System.Drawing.Point(12, 72);
-            this.tbLastName.MaxLength = 35;
-            this.tbLastName.Name = "tbLastName";
-            this.tbLastName.Size = new System.Drawing.Size(139, 20);
-            this.tbLastName.TabIndex = 2;
+            this.panelUniversisties.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelUniversisties.Location = new System.Drawing.Point(256, 154);
+            this.panelUniversisties.Name = "panelUniversisties";
+            this.panelUniversisties.Size = new System.Drawing.Size(144, 203);
+            this.panelUniversisties.TabIndex = 5;
             // 
-            // tbMail
+            // buttonSend
             // 
-            this.tbMail.Location = new System.Drawing.Point(12, 119);
-            this.tbMail.MaxLength = 35;
-            this.tbMail.Name = "tbMail";
-            this.tbMail.Size = new System.Drawing.Size(139, 20);
-            this.tbMail.TabIndex = 3;
+            this.buttonSend.Location = new System.Drawing.Point(256, 380);
+            this.buttonSend.Name = "buttonSend";
+            this.buttonSend.Size = new System.Drawing.Size(144, 23);
+            this.buttonSend.TabIndex = 6;
+            this.buttonSend.Text = "Создать";
+            this.buttonSend.UseVisualStyleBackColor = true;
+            // 
+            // buttonExit
+            // 
+            this.buttonExit.Location = new System.Drawing.Point(452, 13);
+            this.buttonExit.Name = "buttonExit";
+            this.buttonExit.Size = new System.Drawing.Size(54, 23);
+            this.buttonExit.TabIndex = 7;
+            this.buttonExit.Text = "Выйти";
+            this.buttonExit.UseVisualStyleBackColor = true;
+            this.buttonExit.Click += new System.EventHandler(this.buttonExit_Click);
+            // 
+            // panelInfo
+            // 
+            this.panelInfo.Controls.Add(this.dateTimePicker1);
+            this.panelInfo.Controls.Add(this.tbMail);
+            this.panelInfo.Controls.Add(this.tbLastName);
+            this.panelInfo.Controls.Add(this.tbName);
+            this.panelInfo.Location = new System.Drawing.Point(12, 24);
+            this.panelInfo.Name = "panelInfo";
+            this.panelInfo.Size = new System.Drawing.Size(139, 276);
+            this.panelInfo.TabIndex = 8;
+            this.panelInfo.SizeChanged += new System.EventHandler(this.panelInfo_SizeChanged);
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(12, 154);
+            this.dateTimePicker1.Location = new System.Drawing.Point(0, 130);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(139, 20);
-            this.dateTimePicker1.TabIndex = 4;
+            this.dateTimePicker1.TabIndex = 9;
             // 
-            // panel1
+            // tbMail
             // 
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Location = new System.Drawing.Point(256, 154);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(144, 203);
-            this.panel1.TabIndex = 5;
+            this.tbMail.Location = new System.Drawing.Point(0, 95);
+            this.tbMail.MaxLength = 35;
+            this.tbMail.Name = "tbMail";
+            this.tbMail.Size = new System.Drawing.Size(139, 20);
+            this.tbMail.TabIndex = 8;
             // 
-            // bSend
+            // tbLastName
             // 
-            this.bSend.Location = new System.Drawing.Point(256, 380);
-            this.bSend.Name = "bSend";
-            this.bSend.Size = new System.Drawing.Size(144, 23);
-            this.bSend.TabIndex = 6;
-            this.bSend.Text = "Создать";
-            this.bSend.UseVisualStyleBackColor = true;
+            this.tbLastName.Location = new System.Drawing.Point(0, 54);
+            this.tbLastName.MaxLength = 35;
+            this.tbLastName.Name = "tbLastName";
+            this.tbLastName.Size = new System.Drawing.Size(139, 20);
+            this.tbLastName.TabIndex = 6;
             // 
             // StudentInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.bSend);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.tbMail);
-            this.Controls.Add(this.tbLastName);
-            this.Controls.Add(this.tbName);
+            this.ClientSize = new System.Drawing.Size(517, 450);
+            this.Controls.Add(this.panelInfo);
+            this.Controls.Add(this.buttonExit);
+            this.Controls.Add(this.buttonSend);
+            this.Controls.Add(this.panelUniversisties);
             this.Controls.Add(this.pbPhoto);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.MinimumSize = new System.Drawing.Size(500, 450);
             this.Name = "StudentInfo";
             this.Text = "StudentInfo";
             this.Load += new System.EventHandler(this.StudentInfo_Load);
             this.SizeChanged += new System.EventHandler(this.StudentInfo_SizeChanged);
             ((System.ComponentModel.ISupportInitialize)(this.pbPhoto)).EndInit();
+            this.panelInfo.ResumeLayout(false);
+            this.panelInfo.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -123,10 +148,12 @@ namespace StudentsTransfer
 
         private System.Windows.Forms.PictureBox pbPhoto;
         private System.Windows.Forms.TextBox tbName;
-        private System.Windows.Forms.TextBox tbLastName;
-        private System.Windows.Forms.TextBox tbMail;
+        private System.Windows.Forms.Panel panelUniversisties;
+        private System.Windows.Forms.Button buttonSend;
+        private System.Windows.Forms.Button buttonExit;
+        private System.Windows.Forms.Panel panelInfo;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button bSend;
+        private System.Windows.Forms.TextBox tbMail;
+        private System.Windows.Forms.TextBox tbLastName;
     }
 }

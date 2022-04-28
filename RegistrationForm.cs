@@ -194,7 +194,13 @@ namespace StudentsTransfer
                     connection.Open();
                     SQLiteCommand command = new SQLiteCommand();
                     command.Connection = connection;
-                    command.CommandText = $"INSERT INTO users (name, lastname, mail, dateOfBirth, password) VALUES('{nameTextBox.Text}', '{surnameTextBox.Text}', '{mailTextBox.Text}', '{dateTimePicker.Value.ToString("d")}', '{passwordTextBox.Text}');";
+                    SQLiteParameter nameParam = new SQLiteParameter("@name", nameTextBox.Text);
+                    SQLiteParameter surnameParam = new SQLiteParameter("@surname", surnameTextBox.Text);
+                    SQLiteParameter mailParam = new SQLiteParameter("@mail", mailTextBox.Text);
+                    SQLiteParameter dateParam = new SQLiteParameter("@date", dateTimePicker.Value.ToString("yyyyMMdd"));
+                    SQLiteParameter passParam = new SQLiteParameter("@pass", passwordTextBox.Text);
+                    command.CommandText = $"INSERT INTO users (name, lastname, mail, dateOfBirth, password) VALUES(@name, @surname, @mail, @date, @pass);";
+                    command.Parameters.AddRange(new SQLiteParameter[] { nameParam, surnameParam, mailParam, dateParam, passParam });
                     if (command.ExecuteNonQuery() > 0)
                     {
                         MessageBox.Show("Аккаунт создан");
