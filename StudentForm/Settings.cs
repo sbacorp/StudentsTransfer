@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace StudentsTransfer
 {
-    public partial class StudentContent : Form
+    public partial class Settings : Form
     {
-        public StudentContent()
+        public Settings()
         {
             InitializeComponent();
         }

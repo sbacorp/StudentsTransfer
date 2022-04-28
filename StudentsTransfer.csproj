@@ -91,6 +91,12 @@
     <Compile Include="RegistrationForm.Designer.cs">
       <DependentUpon>RegistrationForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="StudentForm\Settings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StudentForm\Settings.Designer.cs">
+      <DependentUpon>Settings.cs</DependentUpon>
+    </Compile>
     <Compile Include="StudentForm\Statements.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -127,6 +133,9 @@
     </Compile>
     <EmbeddedResource Include="RegistrationForm.resx">
       <DependentUpon>RegistrationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StudentForm\Settings.resx">
+      <DependentUpon>Settings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StudentForm\Statements.resx">
       <DependentUpon>Statements.cs</DependentUpon>
@@ -175,7 +184,12 @@
     <Content Include="Resources\lastSession.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\change.png" />
+    <None Include="Resources\account.png" />
+    <None Include="Resources\account %281%29.png" />
+    <None Include="Resources\bank-statement.png" />
     <Content Include="Resources\setting.png" />
+    <None Include="Resources\user.png" />
     <Content Include="transfer.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
