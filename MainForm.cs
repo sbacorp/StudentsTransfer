@@ -157,5 +157,6 @@ namespace StudentsTransfer
             File.WriteAllText(PATH_SESSION, string.Empty);
             goLastSession = false;
         }
+    
     }
 }

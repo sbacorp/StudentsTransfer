@@ -51,7 +51,7 @@ namespace StudentsTransfer
         {
             if (studInfo == null)
             {
-                studInfo = new StudentInfo(idUser, ExitToLogin);
+                studInfo = new StudentInfo(idUser);
                 }
             PanelContent_Selected(studInfo);
             ActivateButton(sender);
@@ -104,6 +104,11 @@ namespace StudentsTransfer
         {
                 Application.Exit();
             }
+        }
+
+        private void exitButton_Click(object sender, EventArgs e)
+        {
+            ExitToLogin();
         }
     }
 }

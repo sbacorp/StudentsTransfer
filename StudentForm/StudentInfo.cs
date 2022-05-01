@@ -16,11 +16,9 @@ namespace StudentsTransfer
         private CheckBox lastBox;
         private readonly int idUser;
         private int selectUnivID;
-        private Action exit;
-        public StudentInfo(int idUser, Action exit)
+        public StudentInfo(int idUser)
         {
             InitializeComponent();
-            this.exit = exit;
             this.TopLevel = false;
             this.TopMost = true;
             this.Dock = DockStyle.Fill;
@@ -59,8 +57,6 @@ namespace StudentsTransfer
             panelUniversisties.Location = new Point(newWidth + 2 * padding, panelUniversisties.Location.Y);
             pbPhoto.Location = new Point(newWidth+2* padding, pbPhoto.Location.Y);
             buttonSend.Location = new Point(newWidth + 2 * padding, buttonSend.Location.Y);
-            buttonExit.Width = 72;
-            buttonExit.Location = new Point(Width-buttonExit.Width, pbPhoto.Location.Y);
         }
 
         private void cBoxs_Click(object sender, EventArgs e)
@@ -93,11 +89,6 @@ namespace StudentsTransfer
             tbLastName.Text = info[1].ToString();
             tbMail.Text = info[2].ToString();
             dateTimePicker1.Value = (DateTime)info[3];
-        }
-
-        private void buttonExit_Click(object sender, EventArgs e)
-        {
-            exit?.Invoke();
         }
 
         private void panelInfo_SizeChanged(object sender, EventArgs e)
