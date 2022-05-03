@@ -273,7 +273,7 @@
             this.dateTimePicker.MaxDate = new System.DateTime(2005, 12, 31, 0, 0, 0, 0);
             this.dateTimePicker.MinDate = new System.DateTime(1950, 1, 1, 0, 0, 0, 0);
             this.dateTimePicker.Name = "dateTimePicker";
-            this.dateTimePicker.Size = new System.Drawing.Size(274, 26);
+            this.dateTimePicker.Size = new System.Drawing.Size(305, 26);
             this.dateTimePicker.TabIndex = 4;
             this.dateTimePicker.Value = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
             // 
