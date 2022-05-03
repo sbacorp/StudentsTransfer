@@ -268,6 +268,7 @@
             this.dateTimePicker.CalendarTitleBackColor = System.Drawing.SystemColors.ControlText;
             this.dateTimePicker.CalendarTitleForeColor = System.Drawing.Color.Transparent;
             this.dateTimePicker.CalendarTrailingForeColor = System.Drawing.Color.Transparent;
+            this.dateTimePicker.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dateTimePicker.Location = new System.Drawing.Point(53, 278);
             this.dateTimePicker.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dateTimePicker.MaxDate = new System.DateTime(2005, 12, 31, 0, 0, 0, 0);
@@ -374,7 +375,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(411, 637);
+            this.ClientSize = new System.Drawing.Size(411, 646);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.authButton);
