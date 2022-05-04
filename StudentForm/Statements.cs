@@ -19,5 +19,10 @@ namespace StudentsTransfer
             this.TopMost = true;
             this.Dock = DockStyle.Fill;
         }
+
+        private void Statements_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

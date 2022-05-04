@@ -228,10 +228,10 @@ namespace StudentsTransfer
             {
                 MessageBox.Show("Заполните все поля и загрузите все фото");
                 return;
-            }
-            if (EmployeeDB.ReadUserRequest(idUser)!=null)
+            } 
+            if (EmployeeDB.CheckUserRequest(idUser, selectUnivID))
             {
-                MessageBox.Show("Нельзя сделать 2 заявки");
+                MessageBox.Show("Нельзя сделать 2 заявки в один и тот же вуз");
                 return;
             }
             labelWarSnils.Visible = false;

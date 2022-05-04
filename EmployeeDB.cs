@@ -239,7 +239,24 @@ namespace StudentsTransfer
             }
         }
 
-        
+        public static bool CheckUserRequest(int id, int univerId)
+        {
+            if (!File.Exists("StudTransfer.db"))
+            {
+                CreateDBTables();
+            }
+            using (var connection = new SQLiteConnection(PATHBD_CONNECT_RO))
+            {
+                connection.Open();
+                string findExpression = $"SELECT * FROM requests WHERE user_id={id} AND university_id={univerId}";
+                var command = new SQLiteCommand(findExpression, connection);
+                using (var reader = command.ExecuteReader())
+                {
+                    return reader.HasRows;
+                }
+            }
+        }
+
 
     }
 }
