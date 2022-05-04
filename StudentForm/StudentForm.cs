@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,15 +20,32 @@ namespace StudentsTransfer
         private bool fullClosing;
         private Button activeButton;
         private readonly int idUser;
+        private PrivateFontCollection pfc = new PrivateFontCollection();
+        
         public StudentForm(MainForm parent, int idUser)
         {
             InitializeComponent();
+            InitFont();
             this.parent = parent;
             fullClosing = true;
             DoubleBuffered = true;
             SetStyle(ControlStyles.ResizeRedraw, true);
             this.idUser = idUser;
         }
+
+        private void InitFont()
+        {
+            int fontLength = Properties.Resources.gothampro.Length;
+            byte[] fontData = Properties.Resources.gothampro;
+            System.IntPtr data = System.Runtime.InteropServices.Marshal.AllocCoTaskMem(fontLength);
+            System.Runtime.InteropServices.Marshal.Copy(fontData, 0, data, fontLength);
+            pfc.AddMemoryFont(data, fontLength);
+            foreach (Control item in this.Controls)
+            {
+                item.Font = new Font(pfc.Families[0], item.Font.Size);
+            }
+        }
+
         private void ExitToLogin()
         {
             studInfo?.Close();
@@ -51,11 +69,16 @@ namespace StudentsTransfer
         {
             if (studInfo == null)
             {
-                studInfo = new StudentInfo(idUser, ExitToLogin);
-                }
+                studInfo = new StudentInfo(idUser, ExitToLogin, ChangeLocation);
+            }
             PanelContent_Selected(studInfo);
             ActivateButton(sender);
-            }
+        }
+
+        private void ChangeLocation(string location)
+        {
+            labelPosition.Text = location;
+        }
 
         private void buttonApplications_Click(object sender, EventArgs e)
         {
@@ -76,7 +99,7 @@ namespace StudentsTransfer
                 // Настройка внешн активированной кнопки
 
                 activeButton.ForeColor = Color.Black;
-                activeButton.Font = new System.Drawing.Font("Gotham", 23F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
+                activeButton.Font = new Font(pfc.Families[0], 20, FontStyle.Bold);
             }
         }
 
@@ -88,7 +111,7 @@ namespace StudentsTransfer
         { 
                     btn.BackColor = Color.Transparent;
                     btn.ForeColor = Color.Black;
-                    btn.Font = new System.Drawing.Font("Gotham", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+                    btn.Font = new Font(pfc.Families[0], 18, FontStyle.Regular);
                 }
             }
         }

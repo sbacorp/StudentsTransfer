@@ -156,14 +156,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="StudTransfer.db">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\gothampro.ttf" />
     <None Include="Resources\gothampro_black.ttf" />
     <None Include="Resources\gothampro_blackitalic.ttf" />
@@ -174,6 +166,14 @@
     <None Include="Resources\gothampro_lightitalic.ttf" />
     <None Include="Resources\gothampro_medium.ttf" />
     <None Include="Resources\gothampro_mediumitalic.ttf" />
+    <None Include="StudTransfer.db">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="Resources\transfer.png" />
   </ItemGroup>
   <ItemGroup>
@@ -188,6 +188,7 @@
     <None Include="Resources\account.png" />
     <None Include="Resources\account %281%29.png" />
     <None Include="Resources\bank-statement.png" />
+    <None Include="Resources\setting-lines.png" />
     <Content Include="Resources\setting.png" />
     <None Include="Resources\user.png" />
     <Content Include="transfer.ico" />

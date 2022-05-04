@@ -17,10 +17,14 @@ namespace StudentsTransfer
         private readonly int idUser;
         private int selectUnivID;
         private Action exit;
-        public StudentInfo(int idUser, Action exit)
+        private string pathPassport;
+        private string pathPhoto;
+        private Action<string> changeLocation;
+        public StudentInfo(int idUser, Action exit, Action<string> changeLocation)
         {
             InitializeComponent();
             this.exit = exit;
+            this.changeLocation = changeLocation;
             this.TopLevel = false;
             this.TopMost = true;
             this.Dock = DockStyle.Fill;
@@ -57,10 +61,13 @@ namespace StudentsTransfer
                 item.Width = newWidth;
             }
             panelUniversisties.Location = new Point(newWidth + 2 * padding, panelUniversisties.Location.Y);
-            pbPhoto.Location = new Point(newWidth+2* padding, pbPhoto.Location.Y);
+            panelPhoto.Location = new Point(newWidth+2* padding, pbPhoto.Location.Y);
             buttonSend.Location = new Point(newWidth + 2 * padding, buttonSend.Location.Y);
             buttonExit.Width = 72;
             buttonExit.Location = new Point(Width-buttonExit.Width, pbPhoto.Location.Y);
+            bChangeUniv.Width = this.Width / 3;
+            bBudget.Width = this.Width / 3;
+            bToGroup.Width = this.Width / 3;
         }
 
         private void cBoxs_Click(object sender, EventArgs e)
@@ -84,11 +91,17 @@ namespace StudentsTransfer
 
         private void StudentInfo_Load(object sender, EventArgs e)
         {
+            if (pathPhoto == null)
+            {
+                bAddPhoto.Dock = DockStyle.Fill;
+                pbPhoto.Visible = false;
+            }
             var info = EmployeeDB.ReadUserInfoId(idUser);
             if (info==null)
             {
                 return;
             }
+            Width += 1;
             tbName.Text = info[0].ToString();
             tbLastName.Text = info[1].ToString();
             tbMail.Text = info[2].ToString();
@@ -105,6 +118,61 @@ namespace StudentsTransfer
             foreach (Control item in panelInfo.Controls)
             {
                 item.Width = panelInfo.Width;
+            }
+        }
+
+        private void bToGroup_Click(object sender, EventArgs e)
+        {
+            HideButtons();
+        }
+
+        private void HideButtons()
+        {
+            bToGroup.Visible = false;
+            bChangeUniv.Visible = false;
+            bBudget.Visible = false;
+        }
+
+        private void bBudget_Click(object sender, EventArgs e)
+        {
+            HideButtons();
+        }
+
+        private void bChangeUniv_Click(object sender, EventArgs e)
+        {
+            HideButtons();
+        }
+
+        private void bAddPassport_Click(object sender, EventArgs e) 
+        {
+            using (OpenFileDialog fd = new OpenFileDialog())
+            {
+                fd.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif;*.tif;...";
+                if (fd.ShowDialog()==DialogResult.OK)
+                {
+                    // добавить коипрование в локальную папкку
+
+                    this.pathPassport = fd.FileName;
+
+                    labelPassport.Text = pathPassport.Split('\\').Last();
+                }
+            }
+        }
+
+        private void bAddPhoto_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog fd = new OpenFileDialog())
+            {
+                fd.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif;*.tif;...";
+                if (fd.ShowDialog() == DialogResult.OK)
+                {
+                    this.pathPhoto = fd.FileName;
+                    //сделать копирование фотки в локальную папку
+                    pbPhoto.Image = new Bitmap(fd.FileName);
+                    bAddPhoto.Visible = false;
+                    pbPhoto.Visible = true;
+
+                }
             }
         }
     }

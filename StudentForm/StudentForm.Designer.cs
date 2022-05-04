@@ -31,11 +31,14 @@ namespace StudentsTransfer
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StudentForm));
             this.panelContent = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.labelPosition = new System.Windows.Forms.Label();
             this.MenuPanel = new System.Windows.Forms.Panel();
             this.buttonSetting = new System.Windows.Forms.Button();
             this.buttonApplications = new System.Windows.Forms.Button();
             this.buttonMain = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panel1.SuspendLayout();
             this.MenuPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -45,15 +48,27 @@ namespace StudentsTransfer
             resources.ApplyResources(this.panelContent, "panelContent");
             this.panelContent.Name = "panelContent";
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.Highlight;
+            this.panel1.Controls.Add(this.labelPosition);
+            resources.ApplyResources(this.panel1, "panel1");
+            this.panel1.Name = "panel1";
+            // 
+            // labelPosition
+            // 
+            resources.ApplyResources(this.labelPosition, "labelPosition");
+            this.labelPosition.Name = "labelPosition";
+            // 
             // MenuPanel
             // 
             this.MenuPanel.BackColor = System.Drawing.Color.Transparent;
             this.MenuPanel.BackgroundImage = global::StudentsTransfer.Properties.Resources.Безымянный_1;
+            resources.ApplyResources(this.MenuPanel, "MenuPanel");
             this.MenuPanel.Controls.Add(this.buttonSetting);
             this.MenuPanel.Controls.Add(this.buttonApplications);
             this.MenuPanel.Controls.Add(this.buttonMain);
             this.MenuPanel.Controls.Add(this.pictureBox1);
-            resources.ApplyResources(this.MenuPanel, "MenuPanel");
             this.MenuPanel.Name = "MenuPanel";
             // 
             // buttonSetting
@@ -62,6 +77,7 @@ namespace StudentsTransfer
             this.buttonSetting.FlatAppearance.BorderSize = 0;
             this.buttonSetting.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.buttonSetting.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.buttonSetting.Image = global::StudentsTransfer.Properties.Resources.setting_lines;
             this.buttonSetting.Name = "buttonSetting";
             this.buttonSetting.UseVisualStyleBackColor = true;
             this.buttonSetting.Click += new System.EventHandler(this.buttonSetting_Click);
@@ -99,10 +115,14 @@ namespace StudentsTransfer
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
             this.Controls.Add(this.panelContent);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.MenuPanel);
             this.Name = "StudentForm";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.StudentForm_FormClosed);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.MenuPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -117,5 +137,7 @@ namespace StudentsTransfer
         private System.Windows.Forms.Button buttonMain;
         private System.Windows.Forms.Button buttonApplications;
         private System.Windows.Forms.Panel panelContent;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label labelPosition;
     }
 }
