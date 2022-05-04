@@ -73,6 +73,7 @@ namespace StudentsTransfer
             }
             PanelContent_Selected(studInfo);
             ActivateButton(sender);
+            Width -= 1;
         }
 
         private void ChangeLocation(string location)

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -48,7 +49,6 @@ namespace StudentsTransfer
 
             
         }
-
 
         private void StudentInfo_SizeChanged(object sender, EventArgs e)
         {
@@ -106,6 +106,24 @@ namespace StudentsTransfer
             tbLastName.Text = info[1].ToString();
             tbMail.Text = info[2].ToString();
             dateTimePicker1.Value = (DateTime)info[3];
+            LoadInfo();
+        }
+
+        private void LoadInfo()
+        {
+            var info = EmployeeDB.ReadUserRequest(idUser);
+            if (info == null)
+            {
+                return;
+            }
+            tbInn.Text = info[2].ToString();
+            tbSnils.Text = info[1].ToString();
+            pathPassport = info[4].ToString();
+            pathPhoto = info[3].ToString();
+            labelPassport.Text = pathPhoto;
+            pbPhoto.Image = new Bitmap($"{Environment.CurrentDirectory}\\Resources\\pictures\\{pathPhoto}");
+            pbPhoto.Visible = true;
+            bAddPhoto.Visible = false;
         }
 
         private void buttonExit_Click(object sender, EventArgs e)
@@ -124,6 +142,7 @@ namespace StudentsTransfer
         private void bToGroup_Click(object sender, EventArgs e)
         {
             HideButtons();
+            changeLocation.Invoke(bToGroup.Text);
         }
 
         private void HideButtons()
@@ -136,10 +155,12 @@ namespace StudentsTransfer
         private void bBudget_Click(object sender, EventArgs e)
         {
             HideButtons();
+            changeLocation.Invoke(bBudget.Text);
         }
 
         private void bChangeUniv_Click(object sender, EventArgs e)
         {
+            changeLocation.Invoke(bChangeUniv.Text);
             HideButtons();
         }
 
@@ -150,12 +171,28 @@ namespace StudentsTransfer
                 fd.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif;*.tif;...";
                 if (fd.ShowDialog()==DialogResult.OK)
                 {
-                    // добавить коипрование в локальную папкку
+                    // добавить путь в бд
 
-                    this.pathPassport = fd.FileName;
-
-                    labelPassport.Text = pathPassport.Split('\\').Last();
+                    this.pathPassport = fd.FileName.Split('\\').Last();
+                    CheckDirectory();
+                    labelPassport.Text = pathPassport;
+                    string pathPic = $"{Environment.CurrentDirectory}\\Resources\\pictures";
+                    int index = 0;
+                    while (File.Exists(pathPic+"\\"+index +".jpg"))
+                    {
+                        index++;
+                    }
+                    File.Copy(fd.FileName, pathPic + "\\" + index + ".jpg");
+                    pathPassport = index + ".jpg";
                 }
+            }
+        }
+
+        private static void CheckDirectory()
+        {
+            if (!Directory.Exists($"{Environment.CurrentDirectory}\\Resources\\pictures"))
+            {
+                Directory.CreateDirectory($"{Environment.CurrentDirectory}\\Resources\\pictures");
             }
         }
 
@@ -166,14 +203,71 @@ namespace StudentsTransfer
                 fd.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif;*.tif;...";
                 if (fd.ShowDialog() == DialogResult.OK)
                 {
-                    this.pathPhoto = fd.FileName;
-                    //сделать копирование фотки в локальную папку
+                    this.pathPhoto = fd.FileName.Split('\\').Last();
+                    //Добавлять путь в бд
+                    CheckDirectory();
+                    string pathPic = $"{Environment.CurrentDirectory}\\Resources\\pictures";
+                    int index = 0;
+                    while (File.Exists(pathPic + "\\" + index + ".jpg"))
+                    {
+                        index++;
+                    }
+                    File.Copy(fd.FileName, pathPic + "\\" + index + ".jpg");
                     pbPhoto.Image = new Bitmap(fd.FileName);
                     bAddPhoto.Visible = false;
                     pbPhoto.Visible = true;
+                    pathPhoto = index + ".jpg";
 
                 }
             }
+        }
+
+        private void buttonSend_Click(object sender, EventArgs e)
+        {
+            if (selectUnivID==-1 || pathPassport==null || pathPhoto==null || !SnilsCorrect() || !InnCorrect())
+            {
+                MessageBox.Show("Заполните все поля и загрузите все фото");
+                return;
+            }
+            if (EmployeeDB.ReadUserRequest(idUser)!=null)
+            {
+                MessageBox.Show("Нельзя сделать 2 заявки");
+                return;
+            }
+            labelWarSnils.Visible = false;
+            labelWarInn.Visible = false;
+            EmployeeDB.AddRequests(pathPhoto, pathPassport, idUser, selectUnivID, tbSnils.Text, tbInn.Text);
+        }
+
+        private bool InnCorrect()
+        {
+            string data = tbInn.Text;
+            long value;
+            if (long.TryParse(data, out value) && data.Length == 12)
+            {
+                return true;
+            }
+            labelWarInn.Visible = true;
+            return false;
+        }
+
+        private bool SnilsCorrect()
+        {
+            string data = tbSnils.Text;
+            long value;
+            if (long.TryParse(data, out value) && data.Length == 11)
+            {
+                return true;
+            }
+            labelWarSnils.Visible = true;
+            return false;
+        }
+
+        private void bChangeMind_Click(object sender, EventArgs e)
+        {
+            bBudget.Visible = true;
+            bToGroup.Visible = true;
+            bChangeUniv.Visible = true;
         }
     }
 }

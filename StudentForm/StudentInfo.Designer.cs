@@ -34,6 +34,9 @@ namespace StudentsTransfer
             this.buttonSend = new System.Windows.Forms.Button();
             this.buttonExit = new System.Windows.Forms.Button();
             this.panelInfo = new System.Windows.Forms.Panel();
+            this.labelPassport = new System.Windows.Forms.Label();
+            this.bAddPassport = new System.Windows.Forms.Button();
+            this.labelInn = new System.Windows.Forms.Label();
             this.labelSnils = new System.Windows.Forms.Label();
             this.labelDate = new System.Windows.Forms.Label();
             this.labelMail = new System.Windows.Forms.Label();
@@ -49,10 +52,10 @@ namespace StudentsTransfer
             this.bBudget = new System.Windows.Forms.Button();
             this.bChangeUniv = new System.Windows.Forms.Button();
             this.panelPhoto = new System.Windows.Forms.Panel();
-            this.labelInn = new System.Windows.Forms.Label();
-            this.bAddPassport = new System.Windows.Forms.Button();
             this.bAddPhoto = new System.Windows.Forms.Button();
-            this.labelPassport = new System.Windows.Forms.Label();
+            this.bChangeMind = new System.Windows.Forms.Button();
+            this.labelWarSnils = new System.Windows.Forms.Label();
+            this.labelWarInn = new System.Windows.Forms.Label();
             this.panelInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPhoto)).BeginInit();
             this.panelPhoto.SuspendLayout();
@@ -82,6 +85,7 @@ namespace StudentsTransfer
             this.buttonSend.TabIndex = 6;
             this.buttonSend.Text = "Создать";
             this.buttonSend.UseVisualStyleBackColor = true;
+            this.buttonSend.Click += new System.EventHandler(this.buttonSend_Click);
             // 
             // buttonExit
             // 
@@ -95,6 +99,8 @@ namespace StudentsTransfer
             // 
             // panelInfo
             // 
+            this.panelInfo.Controls.Add(this.labelWarInn);
+            this.panelInfo.Controls.Add(this.labelWarSnils);
             this.panelInfo.Controls.Add(this.labelPassport);
             this.panelInfo.Controls.Add(this.bAddPassport);
             this.panelInfo.Controls.Add(this.labelInn);
@@ -109,11 +115,39 @@ namespace StudentsTransfer
             this.panelInfo.Controls.Add(this.tbMail);
             this.panelInfo.Controls.Add(this.tbLastName);
             this.panelInfo.Controls.Add(this.tbName);
-            this.panelInfo.Location = new System.Drawing.Point(12, 24);
+            this.panelInfo.Location = new System.Drawing.Point(12, 13);
             this.panelInfo.Name = "panelInfo";
-            this.panelInfo.Size = new System.Drawing.Size(139, 318);
+            this.panelInfo.Size = new System.Drawing.Size(190, 318);
             this.panelInfo.TabIndex = 8;
             this.panelInfo.SizeChanged += new System.EventHandler(this.panelInfo_SizeChanged);
+            // 
+            // labelPassport
+            // 
+            this.labelPassport.AutoSize = true;
+            this.labelPassport.Location = new System.Drawing.Point(3, 256);
+            this.labelPassport.Name = "labelPassport";
+            this.labelPassport.Size = new System.Drawing.Size(106, 13);
+            this.labelPassport.TabIndex = 19;
+            this.labelPassport.Text = "Паспорт не выбран";
+            // 
+            // bAddPassport
+            // 
+            this.bAddPassport.Location = new System.Drawing.Point(0, 272);
+            this.bAddPassport.Name = "bAddPassport";
+            this.bAddPassport.Size = new System.Drawing.Size(139, 23);
+            this.bAddPassport.TabIndex = 18;
+            this.bAddPassport.Text = "Добавить паспорт";
+            this.bAddPassport.UseVisualStyleBackColor = true;
+            this.bAddPassport.Click += new System.EventHandler(this.bAddPassport_Click);
+            // 
+            // labelInn
+            // 
+            this.labelInn.AutoSize = true;
+            this.labelInn.Location = new System.Drawing.Point(3, 204);
+            this.labelInn.Name = "labelInn";
+            this.labelInn.Size = new System.Drawing.Size(31, 13);
+            this.labelInn.TabIndex = 17;
+            this.labelInn.Text = "ИНН";
             // 
             // labelSnils
             // 
@@ -265,25 +299,6 @@ namespace StudentsTransfer
             this.panelPhoto.Size = new System.Drawing.Size(144, 127);
             this.panelPhoto.TabIndex = 12;
             // 
-            // labelInn
-            // 
-            this.labelInn.AutoSize = true;
-            this.labelInn.Location = new System.Drawing.Point(3, 204);
-            this.labelInn.Name = "labelInn";
-            this.labelInn.Size = new System.Drawing.Size(31, 13);
-            this.labelInn.TabIndex = 17;
-            this.labelInn.Text = "ИНН";
-            // 
-            // bAddPassport
-            // 
-            this.bAddPassport.Location = new System.Drawing.Point(0, 272);
-            this.bAddPassport.Name = "bAddPassport";
-            this.bAddPassport.Size = new System.Drawing.Size(139, 23);
-            this.bAddPassport.TabIndex = 18;
-            this.bAddPassport.Text = "Добавить паспорт";
-            this.bAddPassport.UseVisualStyleBackColor = true;
-            this.bAddPassport.Click += new System.EventHandler(this.bAddPassport_Click);
-            // 
             // bAddPhoto
             // 
             this.bAddPhoto.Dock = System.Windows.Forms.DockStyle.Top;
@@ -295,14 +310,35 @@ namespace StudentsTransfer
             this.bAddPhoto.UseVisualStyleBackColor = true;
             this.bAddPhoto.Click += new System.EventHandler(this.bAddPhoto_Click);
             // 
-            // labelPassport
+            // bChangeMind
             // 
-            this.labelPassport.AutoSize = true;
-            this.labelPassport.Location = new System.Drawing.Point(3, 256);
-            this.labelPassport.Name = "labelPassport";
-            this.labelPassport.Size = new System.Drawing.Size(106, 13);
-            this.labelPassport.TabIndex = 19;
-            this.labelPassport.Text = "Паспорт не выбран";
+            this.bChangeMind.Location = new System.Drawing.Point(12, 380);
+            this.bChangeMind.Name = "bChangeMind";
+            this.bChangeMind.Size = new System.Drawing.Size(139, 23);
+            this.bChangeMind.TabIndex = 13;
+            this.bChangeMind.Text = "Поменять решение";
+            this.bChangeMind.UseVisualStyleBackColor = true;
+            this.bChangeMind.Click += new System.EventHandler(this.bChangeMind_Click);
+            // 
+            // labelWarSnils
+            // 
+            this.labelWarSnils.AutoSize = true;
+            this.labelWarSnils.Location = new System.Drawing.Point(47, 163);
+            this.labelWarSnils.Name = "labelWarSnils";
+            this.labelWarSnils.Size = new System.Drawing.Size(125, 13);
+            this.labelWarSnils.TabIndex = 20;
+            this.labelWarSnils.Text = "Неправильный формат";
+            this.labelWarSnils.Visible = false;
+            // 
+            // labelWarInn
+            // 
+            this.labelWarInn.AutoSize = true;
+            this.labelWarInn.Location = new System.Drawing.Point(47, 202);
+            this.labelWarInn.Name = "labelWarInn";
+            this.labelWarInn.Size = new System.Drawing.Size(125, 13);
+            this.labelWarInn.TabIndex = 21;
+            this.labelWarInn.Text = "Неправильный формат";
+            this.labelWarInn.Visible = false;
             // 
             // StudentInfo
             // 
@@ -318,6 +354,7 @@ namespace StudentsTransfer
             this.Controls.Add(this.buttonExit);
             this.Controls.Add(this.buttonSend);
             this.Controls.Add(this.panelUniversisties);
+            this.Controls.Add(this.bChangeMind);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MinimumSize = new System.Drawing.Size(500, 450);
             this.Name = "StudentInfo";
@@ -358,5 +395,8 @@ namespace StudentsTransfer
         private System.Windows.Forms.Button bAddPassport;
         private System.Windows.Forms.Button bAddPhoto;
         private System.Windows.Forms.Label labelPassport;
+        private System.Windows.Forms.Button bChangeMind;
+        private System.Windows.Forms.Label labelWarInn;
+        private System.Windows.Forms.Label labelWarSnils;
     }
 }

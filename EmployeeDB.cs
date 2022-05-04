@@ -13,20 +13,29 @@ namespace StudentsTransfer
         private const string PATHBD_CONNECT_WRC = "Data Source=StudTransfer.db";
         private const string PATHBD_CONNECT_RO = "Data Source=StudTransfer.db;Mode=ReadOnly; ";
         private const string CREATE_TABLE_USERS = "CREATE TABLE users " +
-            "( id INTEGER PRIMARY KEY AUTOINCREMENT," +
-            " name VARCHAR NOT NULL," +
-            " lastname VARCHAR NOT NULL," +
-            " mail VARCHAR UNIQUE NOT NULL," +
-            " dateOfBirth DATE DEFAULT(1012000) NOT NULL," +
-            " password VARCHAR NOT NULL);";
+            "( id           INTEGER PRIMARY KEY AUTOINCREMENT," +
+            " name          VARCHAR NOT NULL," +
+            " lastname      VARCHAR NOT NULL," +
+            " mail          VARCHAR UNIQUE NOT NULL," +
+            " dateOfBirth   DATE DEFAULT(1012000) NOT NULL," +
+            " password      VARCHAR NOT NULL);";
         private const string CREATE_TABLE_UNIVERSITY = "CREATE TABLE universities " +
             "(id INTEGER PRIMARY KEY AUTOINCREMENT," +
             "name STRING  UNIQUE NOT NULL);";
-        private const string CREATE_TABLE_APPLICATIONS = "CREATE TABLE applications " +
-            "([id] INTEGER PRIMARY KEY AUTOINCREMENT," +
-            " user_id INTEGER REFERENCES users(id) NOT NULL," +
-            " university_id INTEGER REFERENCES universities(id) NOT NULL," +
-            " status STRING NOT NULL);"; 
+        private const string CREATE_TABLE_APPLICATIONS = "CREATE TABLE applications (" +
+            "[id]          INTEGER PRIMARY KEY AUTOINCREMENT," +
+            "user_id       INTEGER REFERENCES users(id) NOT NULL," +
+            "university_id INTEGER REFERENCES universities(id) NOT NULL," +
+            "status        STRING NOT NULL" +
+            "type          STRING  NOT NULL);";
+        private const string CREATE_TABLE_REQUESTS = "CREATE TABLE requests (" +
+            "id             INTEGER PRIMARY KEY AUTOINCREMENT," +
+            "user_id        INTEGER NOT NULL," +
+            "university_id  INTEGER NOT NULL," +
+            "snils          VARCHAR NOT NULL," +
+            "inn            VARCHAR NOT NULL," +
+            "photo          VARCHAR NOT NULL," +
+            "pass_scan      VARCHAR NOT NULL);";
         private static void CreateDBTables()
         {
             using (var connection = new SQLiteConnection(PATHBD_CONNECT_WRC))
@@ -37,6 +46,8 @@ namespace StudentsTransfer
                 command.CommandText = CREATE_TABLE_UNIVERSITY;
                 command.ExecuteNonQuery();
                 command.CommandText = CREATE_TABLE_APPLICATIONS;
+                command.ExecuteNonQuery();
+                command.CommandText = CREATE_TABLE_REQUESTS;
                 command.ExecuteNonQuery();
             }
         }
@@ -116,6 +127,11 @@ namespace StudentsTransfer
             universities.Reverse();
             return universities;
         }
+        /// <summary>
+        /// Читает из бд заявления
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public static List<object[]> ReadUserApplications(int id)
         {
             if (!File.Exists("StudTransfer.db"))
@@ -141,6 +157,36 @@ namespace StudentsTransfer
                 }
             }
             return applications;
+        }
+        /// <summary>
+        /// Создает запрос к базе по допИнформации и если ничего нету то null
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public static object[] ReadUserRequest(int id)
+        {
+            if (!File.Exists("StudTransfer.db"))
+            {
+                CreateDBTables();
+            }
+            using (var connection = new SQLiteConnection(PATHBD_CONNECT_RO))
+            {
+                connection.Open();
+                string findExpression = $"SELECT * FROM requests WHERE user_id={id}";
+                var command = new SQLiteCommand(findExpression, connection);
+                using (var reader = command.ExecuteReader())
+                {
+                    if (reader.HasRows && reader.Read())
+                    {
+                        return new object[] { reader.GetValue(2),
+                                                reader.GetValue(3),// snils
+                                                reader.GetValue(4),//inn
+                                                reader.GetValue(5),// photo
+                                                reader.GetValue(6)};// pass
+                    }
+                }
+            }
+            return null;
         }
         public static void AddUser(string[] data)
         {
@@ -176,7 +222,24 @@ namespace StudentsTransfer
                 command.ExecuteNonQuery();
             }
         }
+        public static void AddRequests(string pathPhoto, string pathPass, int idUser, int idUniversity, string snils, string inn)
+        {
+            using (var connection = new SQLiteConnection(PATHBD_CONNECT_WRC))
+            {
+                connection.Open();
+                SQLiteParameter snilsParam = new SQLiteParameter("@snils", snils);
+                SQLiteParameter innParam = new SQLiteParameter("@inn", inn);
+                string expression = $"INSERT INTO requests " +
+                    $"(user_id, university_id, snils, inn, photo, pass_scan)" +
+                    $" VALUES ({idUser}, {idUniversity}, @snils, @inn, \"{pathPhoto}\", \"{pathPass}\" )";
+                var command = new SQLiteCommand(expression, connection);
+                command.Parameters.Add(snilsParam);
+                command.Parameters.Add(innParam);
+                command.ExecuteNonQuery();
+            }
+        }
+
         
-        
+
     }
 }
