@@ -268,12 +268,13 @@
             this.dateTimePicker.CalendarTitleBackColor = System.Drawing.SystemColors.ControlText;
             this.dateTimePicker.CalendarTitleForeColor = System.Drawing.Color.Transparent;
             this.dateTimePicker.CalendarTrailingForeColor = System.Drawing.Color.Transparent;
+            this.dateTimePicker.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dateTimePicker.Location = new System.Drawing.Point(53, 278);
             this.dateTimePicker.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dateTimePicker.MaxDate = new System.DateTime(2005, 12, 31, 0, 0, 0, 0);
             this.dateTimePicker.MinDate = new System.DateTime(1950, 1, 1, 0, 0, 0, 0);
             this.dateTimePicker.Name = "dateTimePicker";
-            this.dateTimePicker.Size = new System.Drawing.Size(274, 26);
+            this.dateTimePicker.Size = new System.Drawing.Size(305, 26);
             this.dateTimePicker.TabIndex = 4;
             this.dateTimePicker.Value = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
             // 
@@ -295,78 +296,14 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Gotham", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(31, 5);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(115, 15);
+            this.label2.Size = new System.Drawing.Size(105, 16);
             this.label2.TabIndex = 10;
             this.label2.Text = "Student Transfer";
             this.label2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.StudentForm_MouseDown);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Gotham", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(57, 55);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(183, 36);
-            this.label1.TabIndex = 12;
-            this.label1.Text = "Регистрация";
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(411, 25);
-            this.panel1.TabIndex = 13;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = global::StudentsTransfer.Properties.Resources.change;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(22, 19);
-            this.pictureBox1.TabIndex = 9;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.StudentForm_MouseDown);
-            // 
-            // button2
-            // 
-            this.button2.BackgroundImage = global::StudentsTransfer.Properties.Resources.close__1_;
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Location = new System.Drawing.Point(397, 3);
-            this.button2.Margin = new System.Windows.Forms.Padding(5);
-            this.button2.Name = "button2";
-            this.button2.Padding = new System.Windows.Forms.Padding(5);
-            this.button2.Size = new System.Drawing.Size(14, 15);
-            this.button2.TabIndex = 8;
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // authButton
-            // 
-            this.authButton.BackColor = System.Drawing.Color.Transparent;
-            this.authButton.BackgroundImage = global::StudentsTransfer.Properties.Resources.ryjgrf;
-            this.authButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.authButton.FlatAppearance.BorderSize = 0;
-            this.authButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.authButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.authButton.Location = new System.Drawing.Point(35, 594);
-            this.authButton.Name = "authButton";
-            this.authButton.Size = new System.Drawing.Size(342, 38);
-            this.authButton.TabIndex = 11;
-            this.authButton.Text = "Создать аккаунт";
-            this.authButton.UseVisualStyleBackColor = false;
-            this.authButton.Click += new System.EventHandler(this.authButton_Click);
             // 
             // label1
             // 
@@ -391,12 +328,54 @@
             this.panel1.TabIndex = 13;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.StudentForm_MouseDown);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::StudentsTransfer.Properties.Resources.change;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(22, 19);
+            this.pictureBox1.TabIndex = 9;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.StudentForm_MouseDown);
+            // 
+            // button2
+            // 
+            this.button2.BackgroundImage = global::StudentsTransfer.Properties.Resources.close__1_;
+            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Location = new System.Drawing.Point(392, 5);
+            this.button2.Margin = new System.Windows.Forms.Padding(5);
+            this.button2.Name = "button2";
+            this.button2.Padding = new System.Windows.Forms.Padding(5);
+            this.button2.Size = new System.Drawing.Size(14, 15);
+            this.button2.TabIndex = 8;
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // authButton
+            // 
+            this.authButton.BackColor = System.Drawing.Color.Transparent;
+            this.authButton.BackgroundImage = global::StudentsTransfer.Properties.Resources.ryjgrf;
+            this.authButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.authButton.FlatAppearance.BorderSize = 0;
+            this.authButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.authButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.authButton.Location = new System.Drawing.Point(35, 594);
+            this.authButton.Name = "authButton";
+            this.authButton.Size = new System.Drawing.Size(342, 38);
+            this.authButton.TabIndex = 11;
+            this.authButton.Text = "Создать аккаунт";
+            this.authButton.UseVisualStyleBackColor = false;
+            this.authButton.Click += new System.EventHandler(this.authButton_Click);
+            // 
             // RegistrationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(411, 637);
+            this.ClientSize = new System.Drawing.Size(411, 646);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.authButton);
