@@ -80,7 +80,7 @@ namespace StudentsTransfer
         private void mailTextBox_TextChanged(object sender, EventArgs e)
         {
             
-            mailMatch = mailTextBox.Text.Contains("@") && mailTextBox.Text.Split('@')[0].Length > 3 && !symbols.Contains(mailTextBox.Text[0]) && !cyrillic.Intersect(mailTextBox.Text).Any() && mailTextBox.Text.Split('@')[1].Contains('.') && mailTextBox.Text.Split('@')[1].Split('.')[0].Length > 1 && mailTextBox.Text.Split('@')[1].Split('.')[1].Length > 1;
+            mailMatch = mailTextBox.Text.Contains("@") && mailTextBox.Text.Split('@')[0].Length > 3 && !symbols.Contains(mailTextBox.Text[0]) && !cyrillic.Intersect(mailTextBox.Text).Any() && mailTextBox.Text.Split('@')[1].Contains('.') && mailTextBox.Text.Split('@')[1].Split('.')[0].Length > 1 && mailTextBox.Text.Split('@')[1].Split('.')[1].Length > 1 && !(symbols + cyrillic).Intersect(mailTextBox.Text.Split('@')[1].Split('.')[0]).Any() && !(symbols + cyrillic).Intersect(mailTextBox.Text.Split('@')[1].Split('.')[1]).Any();
             if (mailMatch)
             {
                 mailTip.ToolTipTitle = "Почта";
@@ -148,37 +148,7 @@ namespace StudentsTransfer
             }
         }
 
-        private void registerButton_Click(object sender, EventArgs e)
-        {
-            if (nameMatch && surnameMatch && mailMatch && passwordMatch && confirmPassMatch)
-            {
-                using (var connection = new SQLiteConnection(@"Data Source=..\..\StudTransfer.db"))
-                {
-                    connection.Open();
-                    SQLiteCommand command = new SQLiteCommand();
-                    command.Connection = connection;
-                    command.CommandText = $"INSERT INTO users (name, lastname, mail, dateOfBirth, password) VALUES('{nameTextBox.Text}', '{surnameTextBox.Text}', '{mailTextBox.Text}', '{dateTimePicker.Value.ToString("d")}', '{passwordTextBox.Text}');";
-                    if (command.ExecuteNonQuery() > 0)
-                    {
-                        MessageBox.Show("Аккаунт создан");
-                        DialogResult = DialogResult.OK;
-                    }
-                    else
-                    {
-                        MessageBox.Show("Что-то пошло не так");
-                    }
-                }
-            }
-            else
-            {
-                MessageBox.Show("Проверьте правильность заполнения полей");
-            }
-        }
-
-        private void nameLabel_Click(object sender, EventArgs e)
-        {
-
-        }
+      
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -187,6 +157,27 @@ namespace StudentsTransfer
 
         private void authButton_Click(object sender, EventArgs e)
         {
+            using (var connection = new SQLiteConnection(@"Data Source=..\..\StudTransfer.db"))
+            {
+                connection.Open();
+                SQLiteCommand command = new SQLiteCommand();
+                command.Connection = connection;
+
+                command.CommandText = $"SELECT * FROM users WHERE mail = '{mailTextBox.Text}';";
+
+                using (SQLiteDataReader reader = command.ExecuteReader())
+                {
+                    int id = 0;
+                    if (reader.HasRows && reader.Read() && int.TryParse(reader.GetValue(0).ToString(), out id))
+                    {
+                        mailMatch = false;
+                        MessageBox.Show("Пользователь с такой почтой уже зарегистрирован");
+                        return;
+                    }
+                }
+
+                connection.Close();
+            }
             if (nameMatch && surnameMatch && mailMatch && passwordMatch && confirmPassMatch)
             {
                 using (var connection = new SQLiteConnection(@"Data Source=..\..\StudTransfer.db"))
