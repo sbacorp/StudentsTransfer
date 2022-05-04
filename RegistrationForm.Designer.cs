@@ -267,12 +267,12 @@
             this.dateTimePicker.CalendarTitleBackColor = System.Drawing.SystemColors.ControlText;
             this.dateTimePicker.CalendarTitleForeColor = System.Drawing.Color.Transparent;
             this.dateTimePicker.CalendarTrailingForeColor = System.Drawing.Color.Transparent;
-            this.dateTimePicker.Location = new System.Drawing.Point(53, 278);
+            this.dateTimePicker.Location = new System.Drawing.Point(56, 280);
             this.dateTimePicker.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dateTimePicker.MaxDate = new System.DateTime(2005, 12, 31, 0, 0, 0, 0);
             this.dateTimePicker.MinDate = new System.DateTime(1950, 1, 1, 0, 0, 0, 0);
             this.dateTimePicker.Name = "dateTimePicker";
-            this.dateTimePicker.Size = new System.Drawing.Size(274, 26);
+            this.dateTimePicker.Size = new System.Drawing.Size(302, 26);
             this.dateTimePicker.TabIndex = 4;
             this.dateTimePicker.Value = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
             // 
@@ -294,11 +294,11 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Gotham", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(31, 5);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(115, 15);
+            this.label2.Size = new System.Drawing.Size(105, 16);
             this.label2.TabIndex = 10;
             this.label2.Text = "Student Transfer";
             this.label2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.StudentForm_MouseDown);
@@ -306,11 +306,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Gotham", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(57, 55);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(183, 36);
+            this.label1.Size = new System.Drawing.Size(194, 37);
             this.label1.TabIndex = 12;
             this.label1.Text = "Регистрация";
             // 
@@ -324,6 +324,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(411, 25);
             this.panel1.TabIndex = 13;
+            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.StudentForm_MouseDown);
             // 
             // pictureBox1
             // 
@@ -366,29 +367,6 @@
             this.authButton.Text = "Создать аккаунт";
             this.authButton.UseVisualStyleBackColor = false;
             this.authButton.Click += new System.EventHandler(this.authButton_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(57, 55);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(194, 37);
-            this.label1.TabIndex = 12;
-            this.label1.Text = "Регистрация";
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(411, 25);
-            this.panel1.TabIndex = 13;
-            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.StudentForm_MouseDown);
             // 
             // RegistrationForm
             // 
