@@ -121,10 +121,21 @@ namespace StudentsTransfer
             tbSnils.Text = info[1].ToString();
             pathPassport = info[4].ToString();
             pathPhoto = info[3].ToString();
-            labelPassport.Text = pathPhoto;
+            if (!File.Exists($"{Environment.CurrentDirectory}\\Resources\\pictures\\{pathPassport}"))
+            {
+                pathPassport = null;
+                return;
+            }
+            labelPassport.Text = pathPassport;
+            if (!File.Exists($"{Environment.CurrentDirectory}\\Resources\\pictures\\{pathPhoto}"))
+            {
+                pathPhoto = null;
+                return;
+            }
             pbPhoto.Image = new Bitmap($"{Environment.CurrentDirectory}\\Resources\\pictures\\{pathPhoto}");
             pbPhoto.Visible = true;
-            bAddPhoto.Visible = false;
+            bAddPhoto.Dock = DockStyle.Bottom;
+            bAddPhoto.Text = "Изменить фото";
         }
 
         private void buttonExit_Click(object sender, EventArgs e)
@@ -218,7 +229,8 @@ namespace StudentsTransfer
                     }
                     File.Copy(fd.FileName, pathPic + "\\" + index + ".jpg");
                     pbPhoto.Image = new Bitmap(fd.FileName);
-                    bAddPhoto.Visible = false;
+                    bAddPhoto.Dock = DockStyle.Bottom;
+                    bAddPhoto.Text = "Изменить фото";
                     pbPhoto.Visible = true;
                     pathPhoto = index + ".jpg";
 
