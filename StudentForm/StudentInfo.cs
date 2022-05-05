@@ -64,8 +64,8 @@ namespace StudentsTransfer
             panelUniversisties.Location = new Point(newWidth + 2 * padding, panelUniversisties.Location.Y);
             panelPhoto.Location = new Point(newWidth+2* padding, pbPhoto.Location.Y);
             buttonSend.Location = new Point(newWidth + 2 * padding, buttonSend.Location.Y);
-            buttonExit.Width = 72;
-            buttonExit.Location = new Point(Width-buttonExit.Width, pbPhoto.Location.Y);
+            //buttonExit.Width = 72;
+            //buttonExit.Location = new Point(Width-buttonExit.Width, pbPhoto.Location.Y);
             bChangeUniv.Width = this.Width / 3;
             bBudget.Width = this.Width / 3;
             bToGroup.Width = this.Width / 3;
@@ -113,6 +113,7 @@ namespace StudentsTransfer
         private void LoadInfo()
         {
             var info = EmployeeDB.ReadUserRequest(idUser);
+            tbGroup.Text = EmployeeDB.GetGroup(idUser); 
             if (info == null)
             {
                 return;
@@ -134,7 +135,8 @@ namespace StudentsTransfer
             }
             pbPhoto.Image = new Bitmap($"{Environment.CurrentDirectory}\\Resources\\pictures\\{pathPhoto}");
             pbPhoto.Visible = true;
-            bAddPhoto.Visible = false;
+            bAddPhoto.Dock = DockStyle.Bottom;
+            bAddPhoto.Text = "Изменить фото";
         }
 
         private void buttonExit_Click(object sender, EventArgs e)
@@ -228,7 +230,8 @@ namespace StudentsTransfer
                     }
                     File.Copy(fd.FileName, pathPic + "\\" + index + ".jpg");
                     pbPhoto.Image = new Bitmap(fd.FileName);
-                    bAddPhoto.Visible = false;
+                    bAddPhoto.Dock = DockStyle.Bottom;
+                    bAddPhoto.Text = "Изменить фото";
                     pbPhoto.Visible = true;
                     pathPhoto = index + ".jpg";
 
@@ -238,7 +241,7 @@ namespace StudentsTransfer
 
         private void buttonSend_Click(object sender, EventArgs e)
         {
-            if (selectUnivID==-1 || pathPassport==null || pathPhoto==null || !SnilsCorrect() || !InnCorrect() || location ==null)
+            if (selectUnivID==-1 || pathPassport==null || pathPhoto==null || !SnilsCorrect() || !InnCorrect() || location ==null || tbGroup.Text == string.Empty)
             {
                 MessageBox.Show("Заполните все поля и загрузите все фото");
                 return;
@@ -252,6 +255,7 @@ namespace StudentsTransfer
             labelWarInn.Visible = false;
             EmployeeDB.AddRequests(pathPhoto, pathPassport, idUser, selectUnivID, tbSnils.Text, tbInn.Text);
             EmployeeDB.AddApplications(idUser, selectUnivID, location);
+            EmployeeDB.AddGroup(idUser, tbGroup.Text);
             MessageBox.Show("Завяка успешно подана");
         }
 
@@ -261,6 +265,7 @@ namespace StudentsTransfer
             long value;
             if (long.TryParse(data, out value) && data.Length == 12)
             {
+                labelWarInn.Visible = false;
                 return true;
             }
             labelWarInn.Visible = true;
@@ -273,6 +278,7 @@ namespace StudentsTransfer
             long value;
             if (long.TryParse(data, out value) && data.Length == 11)
             {
+                labelWarSnils.Visible = false;
                 return true;
             }
             labelWarSnils.Visible = true;

@@ -123,11 +123,6 @@ namespace StudentsTransfer
             }
         }
 
-        private void buttonSetting_Click(object sender, EventArgs e)
-        {
-            labelPosition.Text = buttonSetting.Text.Trim();
-            ActivateButton(sender);
-        }
 
         private void StudentForm_FormClosed(object sender, FormClosedEventArgs e)
         {

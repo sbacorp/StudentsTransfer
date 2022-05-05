@@ -216,9 +216,14 @@ namespace StudentsTransfer
             using (var connection = new SQLiteConnection(PATHBD_CONNECT_WRC))
             {
                 connection.Open();
+                int reqId = GetReqId(idUser, idUniversity);
+                if (reqId==-1)
+                {
+                    return;
+                }
                 string expression = $"INSERT INTO applications" +
-                    $"(user_id, university_id, status, type) " +
-                    $"VALUES({idUser}, {idUniversity} ,\"not checked\", \"{type}\")";
+                    $"(user_id, university_id, status, type, request_id) " +
+                    $"VALUES({idUser}, {idUniversity} ,\"not checked\", \"{type}\", {reqId})";
                 var command = new SQLiteCommand(expression, connection);
                 command.ExecuteNonQuery();
             }
@@ -267,6 +272,60 @@ namespace StudentsTransfer
             {
                 connection.Open();
                 string findExpression = $"SELECT name FROM universities WHERE id={univId}";
+                var command = new SQLiteCommand(findExpression, connection);
+                using (var reader = command.ExecuteReader())
+                {
+                    if (reader.HasRows && reader.Read())
+                    {
+                        return reader.GetString(0);
+                    }
+                }
+            }
+            return null;
+        }
+        public static int GetReqId(int userID, int univerID)
+        {
+            if (!File.Exists("StudTransfer.db"))
+            {
+                CreateDBTables();
+            }
+            using (var connection = new SQLiteConnection(PATHBD_CONNECT_RO))
+            {
+                connection.Open();
+                string findExpression = $"SELECT id FROM requests WHERE user_id={userID} AND university_id={univerID}";
+                var command = new SQLiteCommand(findExpression, connection);
+                using (var reader = command.ExecuteReader())
+                {
+                    if (reader.HasRows && reader.Read())
+                    {
+                        return reader.GetInt32(0);
+                    }
+                }
+            }
+            return -1;
+        }
+
+        public static void AddGroup(int userID, string group)
+        {
+            using (var connection = new SQLiteConnection(PATHBD_CONNECT_WRC))
+            {
+                connection.Open();
+                string expression = $"INSERT INTO userGroup (user_id, stud_group) VALUES({userID}, \"{group}\")";
+                var command = new SQLiteCommand(expression, connection);
+                command.ExecuteNonQuery();
+            }
+        }
+
+        public static string GetGroup(int userID)
+        {
+            if (!File.Exists("StudTransfer.db"))
+            {
+                CreateDBTables();
+            }
+            using (var connection = new SQLiteConnection(PATHBD_CONNECT_RO))
+            {
+                connection.Open();
+                string findExpression = $"SELECT stud_group FROM userGroup WHERE user_id={userID}";
                 var command = new SQLiteCommand(findExpression, connection);
                 using (var reader = command.ExecuteReader())
                 {

@@ -80,15 +80,7 @@ namespace StudentsTransfer
             }
         }
 
-        private void createAccButton_Click(object sender, EventArgs e)
-        {
-            registrationForm = new RegistrationForm();
-            this.Hide();
-            if (registrationForm.ShowDialog().Equals(DialogResult.OK))
-            {
-                this.Show();
-            }
-        }
+        
 
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -147,8 +139,8 @@ namespace StudentsTransfer
             if ((fileContent = File.ReadAllText(PATH_SESSION)) != string.Empty)
             {
                 goLastSession = true;
-                loginTextBox.Text = fileContent.Split('\n')[0];
-                passwordTextBox.Text = fileContent.Split('\n')[1];
+                loginTextBox.Text = fileContent.Split('\n')[0].Trim();
+                passwordTextBox.Text = fileContent.Split('\n')[1].Trim();
                 authButton.PerformClick();
             }
         }
