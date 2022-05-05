@@ -66,7 +66,8 @@ namespace StudentsTransfer
             formInPanel = selectedForm;
             panelContent.Controls.Add(formInPanel);
             selectedForm.Show();
-            }
+        }
+        
         private void buttonMain_Click(object sender, EventArgs e)
         {
             labelPosition.Text = buttonMain.Text.Trim() + ":" + locationInMain;
@@ -134,6 +135,11 @@ namespace StudentsTransfer
         {
                 Application.Exit();
             }
+        }
+
+        private void exitButton_Click(object sender, EventArgs e)
+        {
+            ExitToLogin();
         }
     }
 }

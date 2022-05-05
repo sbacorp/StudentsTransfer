@@ -252,6 +252,7 @@ namespace StudentsTransfer
             labelWarInn.Visible = false;
             EmployeeDB.AddRequests(pathPhoto, pathPassport, idUser, selectUnivID, tbSnils.Text, tbInn.Text);
             EmployeeDB.AddApplications(idUser, selectUnivID, location);
+            MessageBox.Show("Завяка успешно подана");
         }
 
         private bool InnCorrect()

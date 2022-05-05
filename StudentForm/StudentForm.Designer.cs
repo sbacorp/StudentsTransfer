@@ -38,6 +38,7 @@ namespace StudentsTransfer
             this.buttonApplications = new System.Windows.Forms.Button();
             this.buttonMain = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.exitButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.MenuPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -65,6 +66,7 @@ namespace StudentsTransfer
             this.MenuPanel.BackColor = System.Drawing.Color.Transparent;
             this.MenuPanel.BackgroundImage = global::StudentsTransfer.Properties.Resources.Безымянный_1;
             resources.ApplyResources(this.MenuPanel, "MenuPanel");
+            this.MenuPanel.Controls.Add(this.exitButton);
             this.MenuPanel.Controls.Add(this.buttonSetting);
             this.MenuPanel.Controls.Add(this.buttonApplications);
             this.MenuPanel.Controls.Add(this.buttonMain);
@@ -111,6 +113,17 @@ namespace StudentsTransfer
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.TabStop = false;
             // 
+            // exitButton
+            // 
+            resources.ApplyResources(this.exitButton, "exitButton");
+            this.exitButton.FlatAppearance.BorderSize = 0;
+            this.exitButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.exitButton.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.exitButton.Image = global::StudentsTransfer.Properties.Resources.setting_lines;
+            this.exitButton.Name = "exitButton";
+            this.exitButton.UseVisualStyleBackColor = true;
+            this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
+            // 
             // StudentForm
             // 
             resources.ApplyResources(this, "$this");
@@ -139,5 +152,6 @@ namespace StudentsTransfer
         private System.Windows.Forms.Panel panelContent;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label labelPosition;
+        private System.Windows.Forms.Button exitButton;
     }
 }
