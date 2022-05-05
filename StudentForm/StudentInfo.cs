@@ -21,6 +21,7 @@ namespace StudentsTransfer
         private string pathPassport;
         private string pathPhoto;
         private Action<string> changeLocation;
+        private string location;
         public StudentInfo(int idUser, Action exit, Action<string> changeLocation)
         {
             InitializeComponent();
@@ -143,6 +144,7 @@ namespace StudentsTransfer
         {
             HideButtons();
             changeLocation.Invoke(bToGroup.Text);
+            location = bToGroup.Text;
         }
 
         private void HideButtons()
@@ -156,12 +158,14 @@ namespace StudentsTransfer
         {
             HideButtons();
             changeLocation.Invoke(bBudget.Text);
+            location = bBudget.Text;
         }
 
         private void bChangeUniv_Click(object sender, EventArgs e)
         {
             changeLocation.Invoke(bChangeUniv.Text);
             HideButtons();
+            location = bChangeUniv.Text;
         }
 
         private void bAddPassport_Click(object sender, EventArgs e) 
@@ -224,7 +228,7 @@ namespace StudentsTransfer
 
         private void buttonSend_Click(object sender, EventArgs e)
         {
-            if (selectUnivID==-1 || pathPassport==null || pathPhoto==null || !SnilsCorrect() || !InnCorrect())
+            if (selectUnivID==-1 || pathPassport==null || pathPhoto==null || !SnilsCorrect() || !InnCorrect() || location ==null)
             {
                 MessageBox.Show("Заполните все поля и загрузите все фото");
                 return;
@@ -237,6 +241,7 @@ namespace StudentsTransfer
             labelWarSnils.Visible = false;
             labelWarInn.Visible = false;
             EmployeeDB.AddRequests(pathPhoto, pathPassport, idUser, selectUnivID, tbSnils.Text, tbInn.Text);
+            EmployeeDB.AddApplications(idUser, selectUnivID, location);
         }
 
         private bool InnCorrect()

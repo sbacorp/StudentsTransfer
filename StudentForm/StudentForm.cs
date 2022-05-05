@@ -21,6 +21,7 @@ namespace StudentsTransfer
         private Button activeButton;
         private readonly int idUser;
         private PrivateFontCollection pfc = new PrivateFontCollection();
+        private string locationInMain;
         
         public StudentForm(MainForm parent, int idUser)
         {
@@ -31,6 +32,7 @@ namespace StudentsTransfer
             DoubleBuffered = true;
             SetStyle(ControlStyles.ResizeRedraw, true);
             this.idUser = idUser;
+            locationInMain = "";
         }
 
         private void InitFont()
@@ -67,6 +69,7 @@ namespace StudentsTransfer
             }
         private void buttonMain_Click(object sender, EventArgs e)
         {
+            labelPosition.Text = buttonMain.Text.Trim() + ":" + locationInMain;
             if (studInfo == null)
             {
                 studInfo = new StudentInfo(idUser, ExitToLogin, ChangeLocation);
@@ -78,14 +81,16 @@ namespace StudentsTransfer
 
         private void ChangeLocation(string location)
         {
-            labelPosition.Text = location;
+            labelPosition.Text = labelPosition.Text.Split(':')[0]+":"+location;
+            locationInMain = location;
         }
 
         private void buttonApplications_Click(object sender, EventArgs e)
         {
+            labelPosition.Text = buttonApplications.Text.Trim();
             if (statements == null)
             {
-                statements = new Statements();
+                statements = new Statements(idUser);
             }
             PanelContent_Selected(statements);
             ActivateButton(sender);
@@ -119,6 +124,7 @@ namespace StudentsTransfer
 
         private void buttonSetting_Click(object sender, EventArgs e)
         {
+            labelPosition.Text = buttonSetting.Text.Trim();
             ActivateButton(sender);
         }
 

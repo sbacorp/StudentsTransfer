@@ -154,16 +154,13 @@
     <value>NoControl</value>
   </data>
   <data name="labelPosition.Location" type="System.Drawing.Point, System.Drawing">
-    <value>324, 9</value>
+    <value>132, 9</value>
   </data>
   <data name="labelPosition.Size" type="System.Drawing.Size, System.Drawing">
-    <value>164, 46</value>
+    <value>0, 46</value>
   </data>
   <data name="labelPosition.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
-  </data>
-  <data name="labelPosition.Text" xml:space="preserve">
-    <value>Position</value>
   </data>
   <data name="&gt;&gt;labelPosition.Name" xml:space="preserve">
     <value>labelPosition</value>
@@ -203,81 +200,6 @@
   </data>
   <data name="MenuPanel.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
-  </data>
-  <data name="&gt;&gt;buttonSetting.Name" xml:space="preserve">
-    <value>buttonSetting</value>
-  </data>
-  <data name="&gt;&gt;buttonSetting.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;buttonSetting.Parent" xml:space="preserve">
-    <value>MenuPanel</value>
-  </data>
-  <data name="&gt;&gt;buttonSetting.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;buttonApplications.Name" xml:space="preserve">
-    <value>buttonApplications</value>
-  </data>
-  <data name="&gt;&gt;buttonApplications.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;buttonApplications.Parent" xml:space="preserve">
-    <value>MenuPanel</value>
-  </data>
-  <data name="&gt;&gt;buttonApplications.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;buttonMain.Name" xml:space="preserve">
-    <value>buttonMain</value>
-  </data>
-  <data name="&gt;&gt;buttonMain.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;buttonMain.Parent" xml:space="preserve">
-    <value>MenuPanel</value>
-  </data>
-  <data name="&gt;&gt;buttonMain.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;pictureBox1.Name" xml:space="preserve">
-    <value>pictureBox1</value>
-  </data>
-  <data name="&gt;&gt;pictureBox1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pictureBox1.Parent" xml:space="preserve">
-    <value>MenuPanel</value>
-  </data>
-  <data name="&gt;&gt;pictureBox1.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="MenuPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Left</value>
-  </data>
-  <data name="MenuPanel.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 18pt</value>
-  </data>
-  <data name="MenuPanel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="MenuPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>197, 585</value>
-  </data>
-  <data name="MenuPanel.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;MenuPanel.Name" xml:space="preserve">
-    <value>MenuPanel</value>
-  </data>
-  <data name="&gt;&gt;MenuPanel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;MenuPanel.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;MenuPanel.ZOrder" xml:space="preserve">
-    <value>2</value>
   </data>
   <data name="buttonSetting.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Top</value>
@@ -416,6 +338,33 @@
   </data>
   <data name="&gt;&gt;pictureBox1.ZOrder" xml:space="preserve">
     <value>3</value>
+  </data>
+  <data name="MenuPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="MenuPanel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 18pt</value>
+  </data>
+  <data name="MenuPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="MenuPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>197, 585</value>
+  </data>
+  <data name="MenuPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;MenuPanel.Name" xml:space="preserve">
+    <value>MenuPanel</value>
+  </data>
+  <data name="&gt;&gt;MenuPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;MenuPanel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;MenuPanel.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>

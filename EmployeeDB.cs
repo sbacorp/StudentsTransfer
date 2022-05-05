@@ -150,8 +150,9 @@ namespace StudentsTransfer
                     {
                         while (reader.Read())
                         {
-                            applications.Add(new object[] { reader.GetValue(1),
-                                                reader.GetValue(2)}); 
+                            applications.Add(new object[] { reader.GetValue(2),// univerId
+                                                reader.GetValue(3),//status
+                                                reader.GetValue(4)});//type
                         }
                     }
                 }
@@ -210,14 +211,14 @@ namespace StudentsTransfer
                 command.ExecuteNonQuery();
             }
         }
-        public static void AddApplications(int idUser, int idUniversity)
+        public static void AddApplications(int idUser, int idUniversity, string type)
         {
             using (var connection = new SQLiteConnection(PATHBD_CONNECT_WRC))
             {
                 connection.Open();
                 string expression = $"INSERT INTO applications" +
-                    $"(user_id, university_id, status) " +
-                    $"VALUES({idUser}, {idUniversity} ,\"not checked\")";
+                    $"(user_id, university_id, status, type) " +
+                    $"VALUES({idUser}, {idUniversity} ,\"not checked\", \"{type}\")";
                 var command = new SQLiteCommand(expression, connection);
                 command.ExecuteNonQuery();
             }
@@ -255,6 +256,27 @@ namespace StudentsTransfer
                     return reader.HasRows;
                 }
             }
+        }
+        public static string GetUniversityName(int univId)
+        {
+            if (!File.Exists("StudTransfer.db"))
+            {
+                CreateDBTables();
+            }
+            using (var connection = new SQLiteConnection(PATHBD_CONNECT_RO))
+            {
+                connection.Open();
+                string findExpression = $"SELECT name FROM universities WHERE id={univId}";
+                var command = new SQLiteCommand(findExpression, connection);
+                using (var reader = command.ExecuteReader())
+                {
+                    if (reader.HasRows && reader.Read())
+                    {
+                        return reader.GetString(0);
+                    }
+                }
+            }
+            return null;
         }
 
 
