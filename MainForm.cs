@@ -147,8 +147,8 @@ namespace StudentsTransfer
             if ((fileContent = File.ReadAllText(PATH_SESSION)) != string.Empty)
             {
                 goLastSession = true;
-                loginTextBox.Text = fileContent.Split('\n')[0];
-                passwordTextBox.Text = fileContent.Split('\n')[1];
+                loginTextBox.Text = fileContent.Split('\n')[0].Trim();
+                passwordTextBox.Text = fileContent.Split('\n')[1].Trim();
                 authButton.PerformClick();
             }
         }

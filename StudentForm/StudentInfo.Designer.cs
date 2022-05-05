@@ -32,8 +32,9 @@ namespace StudentsTransfer
             this.tbName = new System.Windows.Forms.TextBox();
             this.panelUniversisties = new System.Windows.Forms.Panel();
             this.buttonSend = new System.Windows.Forms.Button();
-            this.buttonExit = new System.Windows.Forms.Button();
             this.panelInfo = new System.Windows.Forms.Panel();
+            this.labelWarInn = new System.Windows.Forms.Label();
+            this.labelWarSnils = new System.Windows.Forms.Label();
             this.labelPassport = new System.Windows.Forms.Label();
             this.bAddPassport = new System.Windows.Forms.Button();
             this.labelInn = new System.Windows.Forms.Label();
@@ -54,8 +55,6 @@ namespace StudentsTransfer
             this.panelPhoto = new System.Windows.Forms.Panel();
             this.bAddPhoto = new System.Windows.Forms.Button();
             this.bChangeMind = new System.Windows.Forms.Button();
-            this.labelWarSnils = new System.Windows.Forms.Label();
-            this.labelWarInn = new System.Windows.Forms.Label();
             this.panelInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPhoto)).BeginInit();
             this.panelPhoto.SuspendLayout();
@@ -87,16 +86,6 @@ namespace StudentsTransfer
             this.buttonSend.UseVisualStyleBackColor = true;
             this.buttonSend.Click += new System.EventHandler(this.buttonSend_Click);
             // 
-            // buttonExit
-            // 
-            this.buttonExit.Location = new System.Drawing.Point(452, 13);
-            this.buttonExit.Name = "buttonExit";
-            this.buttonExit.Size = new System.Drawing.Size(54, 23);
-            this.buttonExit.TabIndex = 7;
-            this.buttonExit.Text = "Выйти";
-            this.buttonExit.UseVisualStyleBackColor = true;
-            this.buttonExit.Click += new System.EventHandler(this.buttonExit_Click);
-            // 
             // panelInfo
             // 
             this.panelInfo.Controls.Add(this.labelWarInn);
@@ -120,6 +109,26 @@ namespace StudentsTransfer
             this.panelInfo.Size = new System.Drawing.Size(190, 318);
             this.panelInfo.TabIndex = 8;
             this.panelInfo.SizeChanged += new System.EventHandler(this.panelInfo_SizeChanged);
+            // 
+            // labelWarInn
+            // 
+            this.labelWarInn.AutoSize = true;
+            this.labelWarInn.Location = new System.Drawing.Point(47, 202);
+            this.labelWarInn.Name = "labelWarInn";
+            this.labelWarInn.Size = new System.Drawing.Size(125, 13);
+            this.labelWarInn.TabIndex = 21;
+            this.labelWarInn.Text = "Неправильный формат";
+            this.labelWarInn.Visible = false;
+            // 
+            // labelWarSnils
+            // 
+            this.labelWarSnils.AutoSize = true;
+            this.labelWarSnils.Location = new System.Drawing.Point(47, 163);
+            this.labelWarSnils.Name = "labelWarSnils";
+            this.labelWarSnils.Size = new System.Drawing.Size(125, 13);
+            this.labelWarSnils.TabIndex = 20;
+            this.labelWarSnils.Text = "Неправильный формат";
+            this.labelWarSnils.Visible = false;
             // 
             // labelPassport
             // 
@@ -320,26 +329,6 @@ namespace StudentsTransfer
             this.bChangeMind.UseVisualStyleBackColor = true;
             this.bChangeMind.Click += new System.EventHandler(this.bChangeMind_Click);
             // 
-            // labelWarSnils
-            // 
-            this.labelWarSnils.AutoSize = true;
-            this.labelWarSnils.Location = new System.Drawing.Point(47, 163);
-            this.labelWarSnils.Name = "labelWarSnils";
-            this.labelWarSnils.Size = new System.Drawing.Size(125, 13);
-            this.labelWarSnils.TabIndex = 20;
-            this.labelWarSnils.Text = "Неправильный формат";
-            this.labelWarSnils.Visible = false;
-            // 
-            // labelWarInn
-            // 
-            this.labelWarInn.AutoSize = true;
-            this.labelWarInn.Location = new System.Drawing.Point(47, 202);
-            this.labelWarInn.Name = "labelWarInn";
-            this.labelWarInn.Size = new System.Drawing.Size(125, 13);
-            this.labelWarInn.TabIndex = 21;
-            this.labelWarInn.Text = "Неправильный формат";
-            this.labelWarInn.Visible = false;
-            // 
             // StudentInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -351,7 +340,6 @@ namespace StudentsTransfer
             this.Controls.Add(this.bBudget);
             this.Controls.Add(this.panelPhoto);
             this.Controls.Add(this.panelInfo);
-            this.Controls.Add(this.buttonExit);
             this.Controls.Add(this.buttonSend);
             this.Controls.Add(this.panelUniversisties);
             this.Controls.Add(this.bChangeMind);
@@ -375,7 +363,6 @@ namespace StudentsTransfer
         private System.Windows.Forms.TextBox tbName;
         private System.Windows.Forms.Panel panelUniversisties;
         private System.Windows.Forms.Button buttonSend;
-        private System.Windows.Forms.Button buttonExit;
         private System.Windows.Forms.Panel panelInfo;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.TextBox tbMail;

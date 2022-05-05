@@ -122,10 +122,11 @@ namespace StudentsTransfer
             }
         }
 
-        private void buttonSetting_Click(object sender, EventArgs e)
+        private void exitButton_Click(object sender, EventArgs e)
         {
-            labelPosition.Text = buttonSetting.Text.Trim();
+            labelPosition.Text = exitButton.Text.Trim();
             ActivateButton(sender);
+            ExitToLogin();
         }
 
         private void StudentForm_FormClosed(object sender, FormClosedEventArgs e)

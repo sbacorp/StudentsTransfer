@@ -64,8 +64,8 @@ namespace StudentsTransfer
             panelUniversisties.Location = new Point(newWidth + 2 * padding, panelUniversisties.Location.Y);
             panelPhoto.Location = new Point(newWidth+2* padding, pbPhoto.Location.Y);
             buttonSend.Location = new Point(newWidth + 2 * padding, buttonSend.Location.Y);
-            buttonExit.Width = 72;
-            buttonExit.Location = new Point(Width-buttonExit.Width, pbPhoto.Location.Y);
+            //buttonExit.Width = 72;
+            //buttonExit.Location = new Point(Width-buttonExit.Width, pbPhoto.Location.Y);
             bChangeUniv.Width = this.Width / 3;
             bBudget.Width = this.Width / 3;
             bToGroup.Width = this.Width / 3;

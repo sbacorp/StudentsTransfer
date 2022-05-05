@@ -34,7 +34,7 @@ namespace StudentsTransfer
             this.panel1 = new System.Windows.Forms.Panel();
             this.labelPosition = new System.Windows.Forms.Label();
             this.MenuPanel = new System.Windows.Forms.Panel();
-            this.buttonSetting = new System.Windows.Forms.Button();
+            this.exitButton = new System.Windows.Forms.Button();
             this.buttonApplications = new System.Windows.Forms.Button();
             this.buttonMain = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -65,22 +65,21 @@ namespace StudentsTransfer
             this.MenuPanel.BackColor = System.Drawing.Color.Transparent;
             this.MenuPanel.BackgroundImage = global::StudentsTransfer.Properties.Resources.Безымянный_1;
             resources.ApplyResources(this.MenuPanel, "MenuPanel");
-            this.MenuPanel.Controls.Add(this.buttonSetting);
+            this.MenuPanel.Controls.Add(this.exitButton);
             this.MenuPanel.Controls.Add(this.buttonApplications);
             this.MenuPanel.Controls.Add(this.buttonMain);
             this.MenuPanel.Controls.Add(this.pictureBox1);
             this.MenuPanel.Name = "MenuPanel";
             // 
-            // buttonSetting
+            // exitButton
             // 
-            resources.ApplyResources(this.buttonSetting, "buttonSetting");
-            this.buttonSetting.FlatAppearance.BorderSize = 0;
-            this.buttonSetting.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.buttonSetting.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.buttonSetting.Image = global::StudentsTransfer.Properties.Resources.setting_lines;
-            this.buttonSetting.Name = "buttonSetting";
-            this.buttonSetting.UseVisualStyleBackColor = true;
-            this.buttonSetting.Click += new System.EventHandler(this.buttonSetting_Click);
+            resources.ApplyResources(this.exitButton, "exitButton");
+            this.exitButton.FlatAppearance.BorderSize = 0;
+            this.exitButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.exitButton.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.exitButton.Name = "exitButton";
+            this.exitButton.UseVisualStyleBackColor = true;
+            this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
             // 
             // buttonApplications
             // 
@@ -132,7 +131,7 @@ namespace StudentsTransfer
         #endregion
 
         private System.Windows.Forms.Panel MenuPanel;
-        private System.Windows.Forms.Button buttonSetting;
+        private System.Windows.Forms.Button exitButton;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button buttonMain;
         private System.Windows.Forms.Button buttonApplications;

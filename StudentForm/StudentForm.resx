@@ -201,40 +201,40 @@
   <data name="MenuPanel.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
   </data>
-  <data name="buttonSetting.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
+  <data name="exitButton.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Bottom</value>
   </data>
-  <data name="buttonSetting.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+  <data name="exitButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="buttonSetting.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+  <data name="exitButton.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
   </data>
-  <data name="buttonSetting.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="exitButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="buttonSetting.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 188</value>
+  <data name="exitButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 536</value>
   </data>
-  <data name="buttonSetting.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="exitButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>197, 49</value>
   </data>
-  <data name="buttonSetting.TabIndex" type="System.Int32, mscorlib">
+  <data name="exitButton.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
-  <data name="buttonSetting.Text" xml:space="preserve">
-    <value>   Настройки</value>
+  <data name="exitButton.Text" xml:space="preserve">
+    <value>Выйти</value>
   </data>
-  <data name="&gt;&gt;buttonSetting.Name" xml:space="preserve">
-    <value>buttonSetting</value>
+  <data name="&gt;&gt;exitButton.Name" xml:space="preserve">
+    <value>exitButton</value>
   </data>
-  <data name="&gt;&gt;buttonSetting.Type" xml:space="preserve">
+  <data name="&gt;&gt;exitButton.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;buttonSetting.Parent" xml:space="preserve">
+  <data name="&gt;&gt;exitButton.Parent" xml:space="preserve">
     <value>MenuPanel</value>
   </data>
-  <data name="&gt;&gt;buttonSetting.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;exitButton.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="buttonApplications.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
