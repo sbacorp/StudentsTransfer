@@ -110,7 +110,7 @@ namespace StudentsTransfer
             using (var connection = new SQLiteConnection(PATHBD_CONNECT_RO))
             {
                 connection.Open();
-                string findExpression = $"SELECT * FROM universities";
+                string findExpression = $"SELECT * FROM universities WHERE id<=7";
                 var command = new SQLiteCommand(findExpression, connection);
                 using (var reader = command.ExecuteReader())
                 {
@@ -120,6 +120,34 @@ namespace StudentsTransfer
                         {
                             universities.Add(new object[] { reader.GetValue(0),
                             reader.GetValue(1)}); 
+                        }
+                    }
+                }
+            }
+            universities.Reverse();
+            return universities;
+        }
+
+        public static List<object[]> ReadDirections()
+        {
+            if (!File.Exists("StudTransfer.db"))
+            {
+                CreateDBTables();
+            }
+            var universities = new List<object[]>();
+            using (var connection = new SQLiteConnection(PATHBD_CONNECT_RO))
+            {
+                connection.Open();
+                string findExpression = $"SELECT * FROM universities WHERE id>7";
+                var command = new SQLiteCommand(findExpression, connection);
+                using (var reader = command.ExecuteReader())
+                {
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            universities.Add(new object[] { reader.GetValue(0),
+                            reader.GetValue(1)});
                         }
                     }
                 }

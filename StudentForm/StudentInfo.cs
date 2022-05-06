@@ -38,15 +38,7 @@ namespace StudentsTransfer
             panelUniversisties.HorizontalScroll.Maximum = 0;
             panelUniversisties.AutoScroll = true;
             //Чтение вузов из бд и закидываем чекбоксы
-            foreach (var university in EmployeeDB.ReadUniversities())
-            {
-                int id; 
-                if (int.TryParse(university[0].ToString(), out id) )
-                {
-                    var box = new CustomCheckBox(id, university[1].ToString(), cBoxs_Click);
-                    this.panelUniversisties.Controls.Add(box); 
-                }
-            }
+            
 
             
         }
@@ -155,6 +147,16 @@ namespace StudentsTransfer
         private void bToGroup_Click(object sender, EventArgs e)
         {
             HideButtons();
+            panelUniversisties.Controls.Clear();
+            foreach (var university in EmployeeDB.ReadDirections())
+            {
+                int id;
+                if (int.TryParse(university[0].ToString(), out id))
+                {
+                    var box = new CustomCheckBox(id, university[1].ToString(), cBoxs_Click);
+                    this.panelUniversisties.Controls.Add(box);
+                }
+            }
             changeLocation.Invoke(bToGroup.Text);
             location = bToGroup.Text;
         }
@@ -168,6 +170,16 @@ namespace StudentsTransfer
 
         private void bBudget_Click(object sender, EventArgs e)
         {
+            panelUniversisties.Controls.Clear();
+            foreach (var university in EmployeeDB.ReadUniversities())
+            {
+                int id;
+                if (int.TryParse(university[0].ToString(), out id))
+                {
+                    var box = new CustomCheckBox(id, university[1].ToString(), cBoxs_Click);
+                    this.panelUniversisties.Controls.Add(box);
+                }
+            }
             HideButtons();
             changeLocation.Invoke(bBudget.Text);
             location = bBudget.Text;
@@ -175,6 +187,16 @@ namespace StudentsTransfer
 
         private void bChangeUniv_Click(object sender, EventArgs e)
         {
+            panelUniversisties.Controls.Clear();
+            foreach (var university in EmployeeDB.ReadUniversities())
+            {
+                int id;
+                if (int.TryParse(university[0].ToString(), out id))
+                {
+                    var box = new CustomCheckBox(id, university[1].ToString(), cBoxs_Click);
+                    this.panelUniversisties.Controls.Add(box);
+                }
+            }
             changeLocation.Invoke(bChangeUniv.Text);
             HideButtons();
             location = bChangeUniv.Text;
@@ -291,5 +313,6 @@ namespace StudentsTransfer
             bToGroup.Visible = true;
             bChangeUniv.Visible = true;
         }
+
     }
 }

@@ -33,6 +33,8 @@ namespace StudentsTransfer
             this.panelUniversisties = new System.Windows.Forms.Panel();
             this.buttonSend = new System.Windows.Forms.Button();
             this.panelInfo = new System.Windows.Forms.Panel();
+            this.labelGroup = new System.Windows.Forms.Label();
+            this.tbGroup = new System.Windows.Forms.TextBox();
             this.labelWarInn = new System.Windows.Forms.Label();
             this.labelWarSnils = new System.Windows.Forms.Label();
             this.labelPassport = new System.Windows.Forms.Label();
@@ -55,8 +57,6 @@ namespace StudentsTransfer
             this.panelPhoto = new System.Windows.Forms.Panel();
             this.bAddPhoto = new System.Windows.Forms.Button();
             this.bChangeMind = new System.Windows.Forms.Button();
-            this.tbGroup = new System.Windows.Forms.TextBox();
-            this.labelGroup = new System.Windows.Forms.Label();
             this.panelInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPhoto)).BeginInit();
             this.panelPhoto.SuspendLayout();
@@ -113,6 +113,22 @@ namespace StudentsTransfer
             this.panelInfo.Size = new System.Drawing.Size(139, 383);
             this.panelInfo.TabIndex = 8;
             this.panelInfo.SizeChanged += new System.EventHandler(this.panelInfo_SizeChanged);
+            // 
+            // labelGroup
+            // 
+            this.labelGroup.AutoSize = true;
+            this.labelGroup.Location = new System.Drawing.Point(3, 246);
+            this.labelGroup.Name = "labelGroup";
+            this.labelGroup.Size = new System.Drawing.Size(42, 13);
+            this.labelGroup.TabIndex = 23;
+            this.labelGroup.Text = "Группа";
+            // 
+            // tbGroup
+            // 
+            this.tbGroup.Location = new System.Drawing.Point(0, 263);
+            this.tbGroup.Name = "tbGroup";
+            this.tbGroup.Size = new System.Drawing.Size(139, 20);
+            this.tbGroup.TabIndex = 22;
             // 
             // labelWarInn
             // 
@@ -334,22 +350,6 @@ namespace StudentsTransfer
             this.bChangeMind.Text = "Поменять решение";
             this.bChangeMind.UseVisualStyleBackColor = true;
             this.bChangeMind.Click += new System.EventHandler(this.bChangeMind_Click);
-            // 
-            // tbGroup
-            // 
-            this.tbGroup.Location = new System.Drawing.Point(0, 263);
-            this.tbGroup.Name = "tbGroup";
-            this.tbGroup.Size = new System.Drawing.Size(139, 20);
-            this.tbGroup.TabIndex = 22;
-            // 
-            // labelGroup
-            // 
-            this.labelGroup.AutoSize = true;
-            this.labelGroup.Location = new System.Drawing.Point(3, 246);
-            this.labelGroup.Name = "labelGroup";
-            this.labelGroup.Size = new System.Drawing.Size(42, 13);
-            this.labelGroup.TabIndex = 23;
-            this.labelGroup.Text = "Группа";
             // 
             // StudentInfo
             // 
